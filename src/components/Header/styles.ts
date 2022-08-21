@@ -6,22 +6,48 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   padding: 2rem 0;
 
-  nav {
+  div {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
+  }
+`;
 
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+export const Cart = styled.nav`
+  position: relative;
 
-      padding: 0.5rem;
-      border-radius: 6px;
-      background: ${(props) => props.theme['yellow-light']};
-      color: ${(props) => props.theme['yellow-dark']};
-    }
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.5rem;
+    border-radius: 6px;
+    background: ${(props) => props.theme['yellow-light']};
+    color: ${(props) => props.theme['yellow-dark']};
+  }
+
+  span {
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    padding: 0.25rem;
+    right: -8.35px;
+    top: -8px;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    border-radius: 50%;
+    background: ${(props) => props.theme['yellow-dark']};
+    color: ${(props) => props.theme.white};
+    z-index: 1;
   }
 `;
 

@@ -1,9 +1,10 @@
+import { CoffeeIntro } from './CoffeeIntro';
 import { HomeContainer } from './styles';
 
 export function Home() {
   return (
     <HomeContainer>
-      <h1>Home</h1>
+      <CoffeeIntro />
     </HomeContainer>
   );
 }

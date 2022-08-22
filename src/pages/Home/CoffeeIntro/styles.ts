@@ -71,7 +71,6 @@ export const IconItem = styled.i<IconProps>`
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
-  gap: 0.5rem;
 
   border-radius: 50%;
   color: ${(props) => props.theme.white};
@@ -81,15 +80,14 @@ export const IconItem = styled.i<IconProps>`
 
 export const Background = styled.div`
   background-image: url(${background});
-  background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 
-  filter: blur(32px);
+  filter: blur(64px);
 
   position: absolute;
-  left: 0px;
-  right: 0px;
+  left: -10rem;
+  right: -10rem;
   top: 0px;
   bottom: 0px;
 `;

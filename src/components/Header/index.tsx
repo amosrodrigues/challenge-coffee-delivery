@@ -6,7 +6,9 @@ import { MapPin, ShoppingCart } from 'phosphor-react';
 export function Header() {
   return (
     <HeaderContainer>
-      <img src={logo} alt="" />
+      <NavLink to="/" title="Voltar para Home">
+        <img src={logo} alt="" />
+      </NavLink>
 
       <div>
         <Location>
@@ -15,7 +17,7 @@ export function Header() {
         </Location>
 
         <Cart>
-          <NavLink to="#" title="Carrinho">
+          <NavLink to="/checkout" title="Carrinho de Compras">
             <ShoppingCart size={22} weight="fill" />
           </NavLink>
 

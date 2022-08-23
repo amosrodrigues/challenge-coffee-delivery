@@ -21,4 +21,27 @@ export const GlobalStyle = createGlobalStyle`
   body, input, textarea, button {
     font: 400 1rem  'Roboto', sans-serif;
   }
+
+  ::-webkit-scrollbar {
+    width: 0.375rem;
+    height: 0.375rem;
+    /* margin-right: 10px; */
+  }
+
+  ::-webkit-scrollbar-corner {
+    height: 0;
+    border: none;
+    background: none;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 25px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: ${(props) => props.theme.yellow};
+    border-radius: 3px;
+    cursor: move;
+  }
 `;

@@ -2,6 +2,7 @@ import { Minus, Plus, ShoppingCart } from 'phosphor-react';
 import { useCallback, useMemo, useState } from 'react';
 import { priceFormatterOnly } from '../../../../utils/formatter';
 import {
+  ButtonActionQuantity,
   CardBody,
   CardFooter,
   CardFooterActions,
@@ -70,7 +71,7 @@ export function CoffeeCard({ item }: CoffeeCardProps) {
         </span>
 
         <CardFooterActions>
-          <div>
+          <ButtonActionQuantity>
             <button onClick={handleDecreaseAmount}>
               <Minus size={14} />
             </button>
@@ -78,7 +79,7 @@ export function CoffeeCard({ item }: CoffeeCardProps) {
             <button onClick={handleIncreaseAmount}>
               <Plus size={14} />
             </button>
-          </div>
+          </ButtonActionQuantity>
 
           <button onClick={handleAddItemToShoppingCart}>
             <ShoppingCart size={22} weight="fill" />

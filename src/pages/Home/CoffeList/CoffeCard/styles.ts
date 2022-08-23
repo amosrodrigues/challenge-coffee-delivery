@@ -113,6 +113,10 @@ export const CardFooterActions = styled.div`
       color: ${(props) => props.theme.purple};
       transition: color 0.2s;
 
+      :focus {
+        box-shadow: none;
+      }
+
       &:hover {
         color: ${(props) => props.theme['purple-dark']};
       }
@@ -135,6 +139,10 @@ export const CardFooterActions = styled.div`
     background: ${(props) => props.theme['purple-dark']};
     color: ${(props) => props.theme.white};
     transition: background-color 0.2s;
+
+    :focus {
+      box-shadow: 0 0 0 2px ${(props) => props.theme['purple-dark']};
+    }
 
     &:hover {
       background: ${(props) => props.theme.purple};

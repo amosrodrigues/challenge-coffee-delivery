@@ -5,9 +5,6 @@ export const FormContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 0.75rem;
-
-  /* width: 100%; */
-  /* height: 591px; */
 `;
 
 export const Address = styled.div`
@@ -57,7 +54,6 @@ export const AddressFields = styled.div`
 
 export const AddressInpunt = styled.input`
   background: ${(props) => props.theme['base-input']};
-  color: ${(props) => props.theme['base-label']};
   border: 1px solid ${(props) => props.theme['base-button']};
   border-radius: 4px;
 

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const CoffeCardContainer = styled.div`
   width: 256px;
@@ -91,7 +91,11 @@ export const CardFooter = styled.div`
   }
 `;
 
-export const CardFooterActions = styled.div`
+interface CardFooterActionsProps {
+  selected: boolean;
+}
+
+export const CardFooterActions = styled.div<CardFooterActionsProps>`
   display: flex;
   gap: 0.5rem;
 
@@ -105,16 +109,30 @@ export const CardFooterActions = styled.div`
     padding: 0.5rem;
     border-radius: 6px;
     background: ${(props) => props.theme['purple-dark']};
+
     color: ${(props) => props.theme.white};
     transition: background-color 0.2s;
 
-    :focus {
+    &:focus {
       box-shadow: 0 0 0 2px ${(props) => props.theme['purple-dark']};
     }
 
-    &:hover {
-      background: ${(props) => props.theme.purple};
-    }
+    ${(props) =>
+      !props.selected &&
+      css`
+        &:hover {
+          background: ${(props) => props.theme.purple};
+          color: ${(props) => props.theme.white};
+        }
+      `}
+
+    ${(props) =>
+      props.selected &&
+      css`
+        background: transparent;
+        box-shadow: 0 0 0 2px ${(props) => props.theme['purple-dark']};
+        color: ${(props) => props.theme.purple};
+      `}
   }
 `;
 
@@ -148,6 +166,10 @@ export const ButtonActionQuantity = styled.div`
 
     &:hover {
       color: ${(props) => props.theme['purple-dark']};
+    }
+
+    &:disabled {
+      cursor: not-allowed;
     }
   }
 

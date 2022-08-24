@@ -1,6 +1,6 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react';
-import { useCallback, useState } from 'react';
-import { Item } from '../../../../contexts/ShoppingContext';
+import { useCallback, useContext, useState } from 'react';
+import { Item, ShoppingContext } from '../../../../contexts/ShoppingContext';
 import { priceFormatterOnly } from '../../../../utils/formatter';
 import {
   ButtonActionQuantity,
@@ -17,6 +17,10 @@ interface CoffeeCardProps {
 
 export function CoffeeCard({ item }: CoffeeCardProps) {
   const [quantity, setQuantity] = useState(item.quantity);
+
+  const { handleAddCart, handleRemoveCart, cart } = useContext(ShoppingContext);
+
+  const selected = cart.some((itemCart) => itemCart.id === item.id);
 
   const handleIncreaseAmount = useCallback(() => {
     setQuantity((state) => (state += 1));
@@ -36,7 +40,12 @@ export function CoffeeCard({ item }: CoffeeCardProps) {
       ...item,
       quantity,
     };
-    console.log(itemCart);
+
+    if (selected) {
+      handleRemoveCart(item.id);
+    } else {
+      handleAddCart(itemCart);
+    }
   }
 
   return (
@@ -61,13 +70,13 @@ export function CoffeeCard({ item }: CoffeeCardProps) {
           R$ <strong>{priceFormatterOnly.format(item.price)}</strong>
         </span>
 
-        <CardFooterActions>
+        <CardFooterActions selected={selected}>
           <ButtonActionQuantity>
-            <button onClick={handleDecreaseAmount}>
+            <button disabled={selected} onClick={handleDecreaseAmount}>
               <Minus size={14} />
             </button>
             <span>{quantity}</span>
-            <button onClick={handleIncreaseAmount}>
+            <button disabled={selected} onClick={handleIncreaseAmount}>
               <Plus size={14} />
             </button>
           </ButtonActionQuantity>

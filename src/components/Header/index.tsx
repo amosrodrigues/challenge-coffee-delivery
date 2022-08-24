@@ -2,8 +2,11 @@ import { Cart, HeaderContainer, Location } from './styles';
 import logo from '../../assets/logo.svg';
 import { NavLink } from 'react-router-dom';
 import { MapPin, ShoppingCart } from 'phosphor-react';
+import { useContext } from 'react';
+import { ShoppingContext } from '../../contexts/ShoppingContext';
 
 export function Header() {
+  const { cart } = useContext(ShoppingContext);
   return (
     <HeaderContainer>
       <NavLink to="/" title="Voltar para Home">
@@ -21,7 +24,7 @@ export function Header() {
             <ShoppingCart size={22} weight="fill" />
           </NavLink>
 
-          <span>3</span>
+          {cart.length > 0 && <span>{cart.length}</span>}
         </Cart>
       </div>
     </HeaderContainer>

@@ -1,5 +1,4 @@
 import { createContext, ReactNode, useCallback, useState } from 'react';
-import { items } from '../data';
 
 export interface Item {
   id: number;
@@ -12,33 +11,72 @@ export interface Item {
 }
 
 interface ShoppingContextType {
-  itemsList: Item[];
+  cart: Item[];
+  handleAddCart: (item: Item) => void;
+  handleRemoveCart: (id: number) => void;
+  handleIncreaseAmount: (id: number) => void;
+  handleDecreaseAmount: (id: number) => void;
+  handleEmptyCart: () => void;
 }
 
 interface ShoppingProviderProps {
   children: ReactNode;
 }
 
-interface CartType {
-  id: number;
-  quantity: number;
-}
-
 export const ShoppingContext = createContext({} as ShoppingContextType);
 
 export function ShoppingProvider({ children }: ShoppingProviderProps) {
-  const [itemsList, setItemsList] = useState(items);
+  const [cart, setCart] = useState<Item[]>([]);
 
-  const [cart, setCart] = useState<CartType>({} as CartType);
+  function handleAddCart(item: Item) {
+    setCart((state) => [...state, item]);
+  }
 
-  // function handleAddCart() {
+  function handleRemoveCart(id: number) {
+    setCart((state) => state.filter((item) => item.id !== id));
+  }
 
-  // }
+  function handleIncreaseAmount(id: number) {
+    const item = cart.find((item) => item.id === id);
+    const NewQuantity = item && item.quantity + 1;
+
+    setCart((state) =>
+      state.map((item) => {
+        if (item.id === id && NewQuantity) {
+          item.quantity = NewQuantity;
+        }
+        return item;
+      }),
+    );
+  }
+
+  function handleDecreaseAmount(id: number) {
+    const item = cart.find((item) => item.id === id);
+    const NewQuantity = item && item.quantity > 1 && item.quantity - 1;
+
+    setCart((state) =>
+      state.map((item) => {
+        if (item.id === id && NewQuantity) {
+          item.quantity = NewQuantity;
+        }
+        return item;
+      }),
+    );
+  }
+
+  function handleEmptyCart() {
+    setCart([]);
+  }
 
   return (
     <ShoppingContext.Provider
       value={{
-        itemsList,
+        cart,
+        handleAddCart,
+        handleRemoveCart,
+        handleIncreaseAmount,
+        handleDecreaseAmount,
+        handleEmptyCart,
       }}>
       {children}
     </ShoppingContext.Provider>

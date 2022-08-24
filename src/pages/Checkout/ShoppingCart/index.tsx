@@ -1,6 +1,5 @@
-import { items } from '../../../data';
 import { Minus, Plus, Trash } from 'phosphor-react';
-import { useCallback, useState } from 'react';
+import { useContext } from 'react';
 import { priceFormatter } from '../../../utils/formatter';
 import {
   CartItemCard,
@@ -11,27 +10,15 @@ import {
   CartItemSumary,
   ButtonSubmitOrder,
 } from './styles';
+import { ShoppingContext } from '../../../contexts/ShoppingContext';
 
 export function ShoppingCart() {
-  const itemList = items.slice(0, 2);
-  const [quantity, setQuantity] = useState(1);
-
-  const handleIncreaseAmount = useCallback(() => {
-    setQuantity((state) => (state += 1));
-  }, []);
-
-  const handleDecreaseAmount = useCallback(() => {
-    setQuantity((state) => {
-      if (state > 1) {
-        return (state -= 1);
-      }
-      return state;
-    });
-  }, []);
+  const { cart, handleRemoveCart, handleIncreaseAmount, handleDecreaseAmount } =
+    useContext(ShoppingContext);
 
   return (
     <ShoppingCartContainer>
-      {itemList.map((item) => {
+      {cart.map((item) => {
         return (
           <CartItemCard>
             <img src={item.thamb} alt={item.type} />
@@ -41,16 +28,22 @@ export function ShoppingCart() {
 
               <div>
                 <ButtonActionQuantity>
-                  <button type="button" onClick={handleDecreaseAmount}>
+                  <button
+                    type="button"
+                    onClick={() => handleDecreaseAmount(item.id)}>
                     <Minus size={14} />
                   </button>
-                  <span>{quantity}</span>
-                  <button type="button" onClick={handleIncreaseAmount}>
+                  <span>{item.quantity}</span>
+                  <button
+                    type="button"
+                    onClick={() => handleIncreaseAmount(item.id)}>
                     <Plus size={14} />
                   </button>
                 </ButtonActionQuantity>
 
-                <ButtonRemoveItem type="button">
+                <ButtonRemoveItem
+                  type="button"
+                  onClick={() => handleRemoveCart(item.id)}>
                   <Trash size={16} />
                   REMOVER
                 </ButtonRemoveItem>

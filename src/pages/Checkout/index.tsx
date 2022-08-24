@@ -1,14 +1,17 @@
-import { useCallback } from 'react';
+import { useCallback, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ShoppingContext } from '../../contexts/ShoppingContext';
 import { CheckoutForm } from './CheckoutForm';
 import { ShoppingCart } from './ShoppingCart';
 import { CheckoutContainer, LeftSection, RightSection } from './styles';
 
 export function Checkout() {
+  const { handleEmptyCart } = useContext(ShoppingContext);
   const navigate = useNavigate();
 
   const handleSubmitForm = useCallback(() => {
     navigate('/success');
+    handleEmptyCart();
   }, []);
 
   return (

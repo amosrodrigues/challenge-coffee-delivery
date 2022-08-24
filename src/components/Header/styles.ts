@@ -4,11 +4,12 @@ export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 0;
+  padding: 2rem 0;
 
   > a {
-    border-radius: 6px;
-    padding: 0.5rem 0.5rem 0;
+    &:focus {
+      box-shadow: none;
+    }
   }
 
   > div {

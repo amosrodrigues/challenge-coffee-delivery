@@ -1,9 +1,86 @@
-import { ShoppingCartContainer } from './styles';
+import { items } from '../../../data';
+import { Minus, Plus, Trash } from 'phosphor-react';
+import { useCallback, useState } from 'react';
+import { priceFormatter } from '../../../utils/formatter';
+import {
+  CartItemCard,
+  ShoppingCartContainer,
+  ButtonActionQuantity,
+  CartInfoActions,
+  CartInfoActionsButton,
+  CartItemSumary,
+  ButtonSubmitOrder,
+} from './styles';
 
 export function ShoppingCart() {
+  const itemList = items.slice(0, 2);
+  const [quantity, setQuantity] = useState(1);
+
+  const handleIncreaseAmount = useCallback(() => {
+    setQuantity((state) => (state += 1));
+  }, []);
+
+  const handleDecreaseAmount = useCallback(() => {
+    setQuantity((state) => {
+      if (state > 1) {
+        return (state -= 1);
+      }
+      return state;
+    });
+  }, []);
+
   return (
     <ShoppingCartContainer>
-      <h2>ShoppingCart</h2>
+      {itemList.map((item) => {
+        return (
+          <CartItemCard>
+            <img src={item.thamb} alt={item.type} />
+
+            <CartInfoActions>
+              <h3>{item.type}</h3>
+
+              <div>
+                <ButtonActionQuantity>
+                  <button onClick={handleDecreaseAmount}>
+                    <Minus size={14} />
+                  </button>
+                  <span>{quantity}</span>
+                  <button onClick={handleIncreaseAmount}>
+                    <Plus size={14} />
+                  </button>
+                </ButtonActionQuantity>
+
+                <CartInfoActionsButton>
+                  <Trash size={16} />
+                  REMOVER
+                </CartInfoActionsButton>
+              </div>
+            </CartInfoActions>
+            <span>{priceFormatter.format(item.price)}</span>
+          </CartItemCard>
+        );
+      })}
+
+      <CartItemSumary>
+        <tbody>
+          <tr>
+            <td>Total de itens</td>
+            <td>R$ 29,70</td>
+          </tr>
+          <tr>
+            <td>Entrega</td>
+            <td>R$ 3,50</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Total</td>
+            <td>R$ 33,20</td>
+          </tr>
+        </tfoot>
+      </CartItemSumary>
+
+      <ButtonSubmitOrder>CONFIMAR PEDIDO</ButtonSubmitOrder>
     </ShoppingCartContainer>
   );
 }

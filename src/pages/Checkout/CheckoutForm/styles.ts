@@ -155,10 +155,14 @@ export const PaymentOptionsCard = styled.div<PaymentOptionsCardProps>`
   font-size: 0.75rem;
   cursor: pointer;
 
-  &:hover {
-    background: ${(props) => props.theme['base-hover']};
-    color: ${(props) => props.theme['base-subtitle']};
-  }
+  ${(props) =>
+    !props.selected &&
+    css`
+      &:hover {
+        background: ${(props) => props.theme['base-hover']};
+        color: ${(props) => props.theme['base-subtitle']};
+      }
+    `}
 
   ${(props) =>
     props.selected &&

@@ -1,5 +1,5 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { priceFormatterOnly } from '../../../../utils/formatter';
 import {
   ButtonActionQuantity,

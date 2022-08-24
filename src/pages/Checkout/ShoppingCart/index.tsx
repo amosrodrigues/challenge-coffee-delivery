@@ -80,7 +80,7 @@ export function ShoppingCart() {
         </tfoot>
       </CartItemSumary>
 
-      <ButtonSubmitOrder>CONFIMAR PEDIDO</ButtonSubmitOrder>
+      <ButtonSubmitOrder type="submit">CONFIMAR PEDIDO</ButtonSubmitOrder>
     </ShoppingCartContainer>
   );
 }

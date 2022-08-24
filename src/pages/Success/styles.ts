@@ -8,11 +8,10 @@ export const SuccessContainer = styled.div`
 `;
 
 export const SuccessHeader = styled.div`
-  line-height: 1.6;
-
   h1 {
     font-family: 800 2rem 'Baloo 2';
     color: ${(props) => props.theme['yellow-dark']};
+    line-height: 1.6;
   }
 
   p {

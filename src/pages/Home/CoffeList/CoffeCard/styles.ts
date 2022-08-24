@@ -13,6 +13,12 @@ export const CoffeCardContainer = styled.div`
 
   border-radius: 6px 36px 6px 36px;
   background: ${(props) => props.theme['base-card']};
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 `;
 
 export const CardHeader = styled.div`

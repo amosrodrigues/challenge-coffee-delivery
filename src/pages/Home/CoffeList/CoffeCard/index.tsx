@@ -1,5 +1,6 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react';
 import { useCallback, useState } from 'react';
+import { Item } from '../../../../contexts/ShoppingContext';
 import { priceFormatterOnly } from '../../../../utils/formatter';
 import {
   ButtonActionQuantity,
@@ -9,16 +10,6 @@ import {
   CardHeader,
   CoffeCardContainer,
 } from './styles';
-
-interface Item {
-  id: number;
-  type: string;
-  thamb: string;
-  description: string;
-  category: string[];
-  price: number;
-  quantity: number;
-}
 
 interface CoffeeCardProps {
   item: Item;
@@ -41,11 +32,11 @@ export function CoffeeCard({ item }: CoffeeCardProps) {
   }, []);
 
   function handleAddItemToShoppingCart() {
-    const teste = {
+    const itemCart = {
       ...item,
       quantity,
     };
-    console.log(teste);
+    console.log(itemCart);
   }
 
   return (

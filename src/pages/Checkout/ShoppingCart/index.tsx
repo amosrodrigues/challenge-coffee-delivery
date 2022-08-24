@@ -7,7 +7,7 @@ import {
   ShoppingCartContainer,
   ButtonActionQuantity,
   CartInfoActions,
-  CartInfoActionsButton,
+  ButtonRemoveItem,
   CartItemSumary,
   ButtonSubmitOrder,
 } from './styles';
@@ -41,19 +41,19 @@ export function ShoppingCart() {
 
               <div>
                 <ButtonActionQuantity>
-                  <button onClick={handleDecreaseAmount}>
+                  <button type="button" onClick={handleDecreaseAmount}>
                     <Minus size={14} />
                   </button>
                   <span>{quantity}</span>
-                  <button onClick={handleIncreaseAmount}>
+                  <button type="button" onClick={handleIncreaseAmount}>
                     <Plus size={14} />
                   </button>
                 </ButtonActionQuantity>
 
-                <CartInfoActionsButton>
+                <ButtonRemoveItem type="button">
                   <Trash size={16} />
                   REMOVER
-                </CartInfoActionsButton>
+                </ButtonRemoveItem>
               </div>
             </CartInfoActions>
             <span>{priceFormatter.format(item.price)}</span>

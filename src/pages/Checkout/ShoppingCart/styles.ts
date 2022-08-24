@@ -47,7 +47,7 @@ export const CartInfoActions = styled.div`
   }
 `;
 
-export const CartInfoActionsButton = styled.button`
+export const ButtonRemoveItem = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;

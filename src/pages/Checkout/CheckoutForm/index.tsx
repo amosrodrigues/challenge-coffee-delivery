@@ -5,13 +5,13 @@ import {
   MapPinLine,
   Money,
 } from 'phosphor-react';
+import { Input } from '../../../components/Form/Input';
 import {
   Address,
   AddressHeader,
   FormContainer,
   Payment,
   AddressFields,
-  AddressInpunt,
   AddressWithTwoFields,
   AddressWithThreeFields,
   PaymentHeader,
@@ -32,17 +32,17 @@ export function CheckoutForm() {
         </AddressHeader>
 
         <AddressFields>
-          <AddressInpunt placeholder="CEP" />
-          <AddressInpunt placeholder="Rua" />
+          <Input placeholder="CEP" />
+          <Input placeholder="Rua" />
           <AddressWithTwoFields>
-            <AddressInpunt placeholder="Número" />
-            <AddressInpunt placeholder="Complemento" />
+            <Input placeholder="Número" />
+            <Input placeholder="Complemento" />
             <span>Opcional</span>
           </AddressWithTwoFields>
           <AddressWithThreeFields>
-            <AddressInpunt placeholder="Bairro" />
-            <AddressInpunt placeholder="Cidade" />
-            <AddressInpunt placeholder="UF" />
+            <Input placeholder="Bairro" />
+            <Input placeholder="Cidade" />
+            <Input placeholder="UF" />
           </AddressWithThreeFields>
         </AddressFields>
       </Address>

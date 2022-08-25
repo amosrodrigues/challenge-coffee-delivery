@@ -50,21 +50,15 @@ export const AddressFields = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-`;
 
-export const AddressInpunt = styled.input`
-  background: ${(props) => props.theme['base-input']};
-  border: 1px solid ${(props) => props.theme['base-button']};
-  border-radius: 4px;
-
-  font-size: 0.875rem;
-  padding: 0.75rem;
-  height: 2.625rem;
-
-  :nth-child(1) {
-    width: 12.5rem;
+  input {
+    &:nth-child(1) {
+      width: 12.5rem;
+    }
   }
 `;
+
+export const AddressInpunt = styled.div``;
 
 export const AddressWithTwoFields = styled.div`
   display: flex;

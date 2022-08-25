@@ -16,11 +16,18 @@ export function ShoppingCart() {
   const { cart, handleRemoveCart, handleIncreaseAmount, handleDecreaseAmount } =
     useContext(ShoppingContext);
 
+  const totalPriceItem = cart.reduce((acc, item) => {
+    return acc + item.price * item.quantity;
+  }, 0);
+
+  const deliveryFee = 4;
+  const total = totalPriceItem + deliveryFee;
+
   return (
     <ShoppingCartContainer>
       {cart.map((item) => {
         return (
-          <CartItemCard>
+          <CartItemCard key={item.id}>
             <img src={item.thamb} alt={item.type} />
 
             <CartInfoActions>
@@ -58,17 +65,17 @@ export function ShoppingCart() {
         <tbody>
           <tr>
             <td>Total de itens</td>
-            <td>R$ 29,70</td>
+            <td>{priceFormatter.format(totalPriceItem)}</td>
           </tr>
           <tr>
             <td>Entrega</td>
-            <td>R$ 3,50</td>
+            <td>{priceFormatter.format(deliveryFee)}</td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
             <td>Total</td>
-            <td>R$ 33,20</td>
+            <td>{priceFormatter.format(total)}</td>
           </tr>
         </tfoot>
       </CartItemSumary>

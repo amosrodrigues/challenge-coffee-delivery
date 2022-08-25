@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useCallback, useState } from 'react';
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 
 export interface Item {
   id: number;
@@ -26,7 +32,19 @@ interface ShoppingProviderProps {
 export const ShoppingContext = createContext({} as ShoppingContextType);
 
 export function ShoppingProvider({ children }: ShoppingProviderProps) {
-  const [cart, setCart] = useState<Item[]>([]);
+  const [cart, setCart] = useState<Item[]>(() => {
+    const storedStateAsJSON = localStorage.getItem(
+      '@coffeeDelivery:cart-state-1.0.0',
+    );
+    if (storedStateAsJSON) {
+      return JSON.parse(storedStateAsJSON);
+    } else {
+      localStorage.setItem(
+        '@coffeeDelivery:cart-state-1.0.0',
+        JSON.stringify([]),
+      );
+    }
+  });
 
   function handleAddCart(item: Item) {
     setCart((state) => [...state, item]);
@@ -67,6 +85,11 @@ export function ShoppingProvider({ children }: ShoppingProviderProps) {
   function handleEmptyCart() {
     setCart([]);
   }
+
+  useEffect(() => {
+    const stateJSON = JSON.stringify(cart);
+    localStorage.setItem('@coffeeDelivery:cart-state-1.0.0', stateJSON);
+  }, [cart]);
 
   return (
     <ShoppingContext.Provider

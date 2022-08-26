@@ -56,6 +56,10 @@ export const AddressFields = styled.div`
       width: 12.5rem;
     }
   }
+
+  p {
+    color: red;
+  }
 `;
 
 export const AddressInpunt = styled.div``;

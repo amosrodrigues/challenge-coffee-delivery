@@ -1,20 +1,30 @@
-import { InputHTMLAttributes } from 'react';
+import {
+  forwardRef,
+  ForwardRefRenderFunction,
+  InputHTMLAttributes,
+} from 'react';
 
 import { FieldError } from 'react-hook-form';
 import { InpuntStyled } from './styles';
 
-type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+interface InputProps {
   name?: string;
   label?: string;
-  error?: FieldError | null;
-};
+  error?: boolean;
+  placeholder?: string;
+}
 
-export function Input({ name, label, error = null, ...props }: InputProps) {
+const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
+  { name, label, error = false, ...props },
+  ref,
+) => {
   return (
     <>
       {!!label && <label htmlFor={name}>{label}</label>}
-      <InpuntStyled id={name} name={name} {...props} />
-      {!!error && <span>{error.message}</span>}
+      <InpuntStyled id={name} name={name} error={error} {...props} ref={ref} />
+      {/* {!!error && <p>{error.message}</p>} */}
     </>
   );
-}
+};
+
+export const Input = forwardRef(InputBase);

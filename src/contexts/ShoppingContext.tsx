@@ -1,10 +1,4 @@
-import {
-  createContext,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react';
+import { createContext, ReactNode, useEffect, useState } from 'react';
 
 export interface Item {
   id: number;

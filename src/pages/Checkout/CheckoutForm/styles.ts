@@ -147,13 +147,13 @@ export const PaymentOptionsCard = styled.div<PaymentOptionsCardProps>`
   color: ${(props) => props.theme['base-text']};
   border-radius: 6px;
   font-size: 0.75rem;
-  cursor: pointer;
 
   position: relative;
 
   label {
     position: absolute;
     background: transparent;
+    cursor: pointer;
     left: 0;
     right: 0;
   }

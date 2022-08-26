@@ -5,7 +5,7 @@ import {
   MapPinLine,
   Money,
 } from 'phosphor-react';
-import { Controller, useFormContext } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import { Input } from '../../../components/Form/Input';
 import {
   Address,

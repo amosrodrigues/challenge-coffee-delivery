@@ -1,5 +1,5 @@
 import { useCallback, useContext } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { ShoppingContext } from '../../contexts/ShoppingContext';
 import { CheckoutForm } from './CheckoutForm';
@@ -34,30 +34,35 @@ export function Checkout() {
     },
   });
 
-  const { register, watch, handleSubmit } = orderForm;
+  const { handleSubmit } = orderForm;
 
-  function handleSubmitForm(data: orderFormData) {
-    // navigate('/success');
-    // handleEmptyCart();
+  const handleSubmitForm: SubmitHandler<orderFormData> = async (
+    data: orderFormData,
+    event,
+  ) => {
+    event?.preventDefault();
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    navigate('/success');
+    handleEmptyCart();
     console.log(data);
-  }
+  };
 
   return (
     <CheckoutContainer>
       <form onSubmit={handleSubmit(handleSubmitForm)}>
-        <LeftSection>
-          <h2>Complete seu pedido</h2>
+        <FormProvider {...orderForm}>
+          <LeftSection>
+            <h2>Complete seu pedido</h2>
 
-          <FormProvider {...orderForm}>
             <CheckoutForm />
-          </FormProvider>
-        </LeftSection>
+          </LeftSection>
 
-        <RightSection>
-          <h2>Cafés selecionados</h2>
+          <RightSection>
+            <h2>Cafés selecionados</h2>
 
-          <ShoppingCart />
-        </RightSection>
+            <ShoppingCart />
+          </RightSection>
+        </FormProvider>
       </form>
     </CheckoutContainer>
   );

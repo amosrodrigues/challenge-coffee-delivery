@@ -11,10 +11,17 @@ import {
   ButtonSubmitOrder,
 } from './styles';
 import { ShoppingContext } from '../../../contexts/ShoppingContext';
+import { ButtonRedirect } from '../ButtonRedirect';
+import { useNavigate } from 'react-router-dom';
+import { useFormContext } from 'react-hook-form';
 
 export function ShoppingCart() {
   const { cart, handleRemoveCart, handleIncreaseAmount, handleDecreaseAmount } =
     useContext(ShoppingContext);
+
+  const navigate = useNavigate();
+
+  const { formState } = useFormContext();
 
   const totalPriceItem = cart.reduce((acc, item) => {
     return acc + item.price * item.quantity;
@@ -80,7 +87,20 @@ export function ShoppingCart() {
         </tfoot>
       </CartItemSumary>
 
-      <ButtonSubmitOrder type="submit">CONFIMAR PEDIDO</ButtonSubmitOrder>
+      <ButtonSubmitOrder type="submit">
+        {formState.isSubmitting ? (
+          <div className="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        ) : (
+          'CONFIMAR PEDIDO'
+        )}
+      </ButtonSubmitOrder>
+
+      <ButtonRedirect type="button" onClick={() => navigate('/')} />
     </ShoppingCartContainer>
   );
 }

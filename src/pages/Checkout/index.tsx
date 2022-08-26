@@ -1,4 +1,4 @@
-import { useCallback, useContext } from 'react';
+import { useContext } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { ShoppingContext } from '../../contexts/ShoppingContext';
@@ -9,6 +9,7 @@ import { CheckoutContainer, LeftSection, RightSection } from './styles';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import * as zod from 'zod';
+import { EmptyCart } from './EmptyCart';
 
 const orderFormValidationSchema = zod.object({
   cep: zod.string().min(1, 'Campo obrigatório'),
@@ -24,7 +25,7 @@ const orderFormValidationSchema = zod.object({
 type orderFormData = zod.infer<typeof orderFormValidationSchema>;
 
 export function Checkout() {
-  const { handleEmptyCart, handleAddOrder } = useContext(ShoppingContext);
+  const { handleEmptyCart, handleAddOrder, cart } = useContext(ShoppingContext);
   const navigate = useNavigate();
 
   const orderForm = useForm<orderFormData>({
@@ -49,21 +50,25 @@ export function Checkout() {
 
   return (
     <CheckoutContainer>
-      <form onSubmit={handleSubmit(handleSubmitForm)}>
-        <FormProvider {...orderForm}>
-          <LeftSection>
-            <h2>Complete seu pedido</h2>
+      {cart.length === 0 ? (
+        <EmptyCart />
+      ) : (
+        <form onSubmit={handleSubmit(handleSubmitForm)}>
+          <FormProvider {...orderForm}>
+            <LeftSection>
+              <h2>Complete seu pedido</h2>
 
-            <CheckoutForm />
-          </LeftSection>
+              <CheckoutForm />
+            </LeftSection>
 
-          <RightSection>
-            <h2>Cafés selecionados</h2>
+            <RightSection>
+              <h2>Cafés selecionados</h2>
 
-            <ShoppingCart />
-          </RightSection>
-        </FormProvider>
-      </form>
+              <ShoppingCart />
+            </RightSection>
+          </FormProvider>
+        </form>
+      )}
     </CheckoutContainer>
   );
 }

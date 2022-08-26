@@ -25,6 +25,11 @@ export const SuccessSumary = styled.div`
   justify-content: space-between;
   gap: 1rem;
   align-items: center;
+
+  img {
+    width: 500px;
+    height: 301px;
+  }
 `;
 
 export const OrderInfo = styled.div`

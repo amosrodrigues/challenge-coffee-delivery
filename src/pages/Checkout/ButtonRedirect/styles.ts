@@ -5,7 +5,7 @@ export const Button = styled.button`
   justify-content: center;
   gap: 0.5rem;
   align-items: center;
-  padding: 0.75rem 0.5rem;
+  padding: 0.75rem 1rem;
   cursor: pointer;
 
   font-size: 0.875rem;

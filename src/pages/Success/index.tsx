@@ -10,9 +10,12 @@ import illustration from '../../assets/illustration.svg';
 import { Bank, CreditCard, MapPin, Money, Timer } from 'phosphor-react';
 import { useContext } from 'react';
 import { ShoppingContext } from '../../contexts/ShoppingContext';
+import { ButtonRedirect } from '../Checkout/ButtonRedirect';
+import { useNavigate } from 'react-router-dom';
 
 export function Success() {
   const { order } = useContext(ShoppingContext);
+  const navigate = useNavigate();
 
   const paymantType =
     order.paymentType === 'credit'
@@ -72,6 +75,7 @@ export function Success() {
               <strong>{paymantType}</strong>
             </p>
           </OrderSteps>
+          <ButtonRedirect type="button" onClick={() => navigate('/')} />
         </OrderInfo>
         <img src={illustration} alt="" />
       </SuccessSumary>

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 interface InpuntStyled {
-  error: boolean;
+  error?: boolean;
 }
 
 export const InpuntStyled = styled.input<InpuntStyled>`

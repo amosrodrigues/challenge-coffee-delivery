@@ -149,6 +149,24 @@ export const PaymentOptionsCard = styled.div<PaymentOptionsCardProps>`
   font-size: 0.75rem;
   cursor: pointer;
 
+  position: relative;
+
+  label {
+    position: absolute;
+    background: transparent;
+    left: 0;
+    right: 0;
+  }
+
+  input[type='radio'] {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
   ${(props) =>
     !props.selected &&
     css`

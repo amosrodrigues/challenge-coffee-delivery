@@ -18,6 +18,7 @@ const orderFormValidationSchema = zod.object({
   district: zod.string().min(1, 'Campo obrigatório'),
   city: zod.string().min(1, 'Campo obrigatório'),
   uf: zod.string().min(1, 'Campo obrigatório'),
+  paymentType: zod.enum(['credit', 'debit', 'money']),
 });
 
 type orderFormData = zod.infer<typeof orderFormValidationSchema>;
@@ -28,6 +29,9 @@ export function Checkout() {
 
   const orderForm = useForm<orderFormData>({
     resolver: zodResolver(orderFormValidationSchema),
+    defaultValues: {
+      paymentType: 'credit',
+    },
   });
 
   const { register, watch, handleSubmit } = orderForm;

@@ -5,7 +5,7 @@ import {
   MapPinLine,
   Money,
 } from 'phosphor-react';
-import { useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from 'react-hook-form';
 import { Input } from '../../../components/Form/Input';
 import {
   Address,
@@ -21,9 +21,11 @@ import {
 } from './styles';
 
 export function CheckoutForm() {
-  const { register, formState } = useFormContext();
+  const { register, formState, watch } = useFormContext();
 
   const { errors } = formState;
+
+  const paymentType = watch('paymentType');
 
   return (
     <FormContainer>
@@ -84,17 +86,41 @@ export function CheckoutForm() {
         </PaymentHeader>
 
         <PaymentOptions>
-          <PaymentOptionsCard>
+          <PaymentOptionsCard selected={paymentType === 'credit'}>
             <CreditCard size={16} />
             <p>CARTÃO DE CRÉDITO</p>
+            <label htmlFor="credit">
+              <Input
+                id="credit"
+                type="radio"
+                value="credit"
+                {...register('paymentType')}
+              />
+            </label>
           </PaymentOptionsCard>
-          <PaymentOptionsCard>
+          <PaymentOptionsCard selected={paymentType === 'debit'}>
             <Bank size={16} />
             <p>CARTÃO DE DÉBITO</p>
+            <label htmlFor="debit">
+              <Input
+                id="debit"
+                type="radio"
+                value="debit"
+                {...register('paymentType')}
+              />
+            </label>
           </PaymentOptionsCard>
-          <PaymentOptionsCard selected>
+          <PaymentOptionsCard selected={paymentType === 'money'}>
             <Money size={16} />
             <p>DINHEIRO</p>
+            <label htmlFor="money">
+              <Input
+                id="money"
+                type="radio"
+                value="money"
+                {...register('paymentType')}
+              />
+            </label>
           </PaymentOptionsCard>
         </PaymentOptions>
       </Payment>

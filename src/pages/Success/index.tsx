@@ -7,9 +7,29 @@ import {
   SuccessSumary,
 } from './styles';
 import illustration from '../../assets/illustration.svg';
-import { MapPin, Money, Timer } from 'phosphor-react';
+import { Bank, CreditCard, MapPin, Money, Timer } from 'phosphor-react';
+import { useContext } from 'react';
+import { ShoppingContext } from '../../contexts/ShoppingContext';
 
 export function Success() {
+  const { order } = useContext(ShoppingContext);
+
+  const paymantType =
+    order.paymentType === 'credit'
+      ? ' Cartão de Crédito'
+      : order.paymentType === 'debit'
+      ? 'Cartão de Débito'
+      : 'Dinheiro';
+
+  const icon =
+    order.paymentType === 'credit' ? (
+      <CreditCard size={16} weight="fill" />
+    ) : order.paymentType === 'debit' ? (
+      <Bank size={16} weight="fill" />
+    ) : (
+      <Money size={16} weight="fill" />
+    );
+
   return (
     <SuccessContainer>
       <SuccessHeader>
@@ -24,9 +44,12 @@ export function Success() {
               <MapPin size={16} weight="fill" />
             </IconItem>
             <p>
-              Entrega em Rua <strong>João Daniel Martinelli, 102</strong>
+              Entrega em Rua{' '}
+              <strong>{`${order.street}, ${order.streetNumber}${
+                order.complement && ', ' + order.complement
+              }`}</strong>
               <br />
-              Farrapos - Porto Alegre, RS
+              {` ${order.district} - ${order.city}, ${order.uf}`}
             </p>
           </OrderSteps>
 
@@ -42,13 +65,11 @@ export function Success() {
           </OrderSteps>
 
           <OrderSteps>
-            <IconItem iconBackgroundColor="yellowDark">
-              <Money size={16} weight="fill" />
-            </IconItem>
+            <IconItem iconBackgroundColor="yellowDark">{icon}</IconItem>
             <p>
               Pagamento na entrega
               <br />
-              <strong>Cartão de Crédito</strong>
+              <strong>{paymantType}</strong>
             </p>
           </OrderSteps>
         </OrderInfo>

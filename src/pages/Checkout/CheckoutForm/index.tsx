@@ -69,7 +69,12 @@ export function CheckoutForm() {
               error={!!errors.city}
               {...register('city')}
             />
-            <Input placeholder="UF" error={!!errors.uf} {...register('uf')} />
+            <Input
+              placeholder="UF"
+              style={{ textTransform: 'uppercase' }}
+              error={!!errors.uf}
+              {...register('uf')}
+            />
           </AddressWithThreeFields>
         </AddressFields>
       </Address>

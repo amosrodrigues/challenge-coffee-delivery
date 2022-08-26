@@ -12,7 +12,7 @@ export const Button = styled.button`
   font-weight: 700;
   line-height: 1.6;
 
-  background: ${(props) => props.theme['purple-dark']};
+  background: ${(props) => props.theme.purple};
   color: ${(props) => props.theme.white};
   border: 0;
   border-radius: 6px;
@@ -20,7 +20,7 @@ export const Button = styled.button`
   transition: background 0.2s;
 
   &:hover {
-    background: ${(props) => props.theme.purple};
+    background: ${(props) => props.theme['purple-dark']};
   }
 
   &:focus {

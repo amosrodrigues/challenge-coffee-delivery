@@ -13,7 +13,6 @@ export const CoffeeIntroContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 4.125rem;
-    order: 1;
   }
 
   img {
@@ -25,6 +24,10 @@ export const CoffeeIntroContainer = styled.div`
   @media (max-width: 768px) {
     padding: 3rem 0;
     flex-direction: column;
+
+    > div {
+      order: 1;
+    }
 
     img {
       width: 326px;

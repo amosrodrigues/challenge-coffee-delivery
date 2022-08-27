@@ -4,12 +4,17 @@ export const SuccessContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  margin-top: 5rem;
+  margin-top: 3rem;
+
+  @media (max-width: 768px) {
+    gap: 0rem;
+    margin-top: 2rem;
+  }
 `;
 
 export const SuccessHeader = styled.div`
   h1 {
-    font-family: 800 2rem 'Baloo 2';
+    font: 800 2rem 'Baloo 2';
     color: ${(props) => props.theme['yellow-dark']};
     line-height: 1.6;
   }
@@ -17,6 +22,16 @@ export const SuccessHeader = styled.div`
   p {
     font-size: 1.25rem;
     color: ${(props) => props.theme['base-subtitle']};
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -29,6 +44,20 @@ export const SuccessSumary = styled.div`
   img {
     width: 500px;
     height: 301px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0;
+
+    > div {
+      order: 1;
+    }
+
+    img {
+      width: 300px;
+      order: 0;
+    }
   }
 `;
 

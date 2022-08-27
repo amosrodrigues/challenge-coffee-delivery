@@ -84,7 +84,7 @@ export function ShoppingProvider({ children }: ShoppingProviderProps) {
 
   useEffect(() => {
     const stateJSON = JSON.stringify(shoppingCartState);
-    localStorage.setItem('@coffeeDelivery:cart-state-1.0.0', stateJSON);
+    localStorage.setItem('@coffeeDelivery:cart-state-1.0.1', stateJSON);
   }, [shoppingCartState]);
 
   return (

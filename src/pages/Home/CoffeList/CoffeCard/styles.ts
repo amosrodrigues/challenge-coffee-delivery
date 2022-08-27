@@ -9,7 +9,7 @@ export const CoffeCardContainer = styled.div`
   align-items: center;
   gap: 1rem;
 
-  padding: 0 1.5rem 1.25rem;
+  padding: 0 1.25rem 1.25rem;
 
   border-radius: 6px 36px 6px 36px;
   background: ${(props) => props.theme['base-card']};

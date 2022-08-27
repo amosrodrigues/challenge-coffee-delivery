@@ -35,13 +35,13 @@ export function ShoppingProvider({ children }: ShoppingProviderProps) {
     },
     () => {
       const storedStateAsJSON = localStorage.getItem(
-        '@coffeeDelivery:cart-state-1.0.0',
+        '@coffeeDelivery:cart-state-1.0.1',
       );
       if (storedStateAsJSON) {
         return JSON.parse(storedStateAsJSON);
       } else {
         localStorage.setItem(
-          '@coffeeDelivery:cart-state-1.0.0',
+          '@coffeeDelivery:cart-state-1.0.1',
           JSON.stringify({ cart: [], order: {} }),
         );
       }

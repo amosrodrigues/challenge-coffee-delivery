@@ -59,7 +59,7 @@ export function ShoppingCart() {
                   type="button"
                   onClick={() => handleRemoveCart(item.id)}>
                   <Trash size={16} />
-                  REMOVER
+                  <span>REMOVER</span>
                 </ButtonRemoveItem>
               </div>
             </CartInfoActions>

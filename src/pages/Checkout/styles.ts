@@ -17,6 +17,12 @@ export const CheckoutContainer = styled.main`
     color: ${(props) => props.theme['base-subtitle']};
     margin-bottom: 0.9375rem;
   }
+
+  @media (max-width: 768px) {
+    form {
+      flex-direction: column;
+    }
+  }
 `;
 
 export const LeftSection = styled.section`
@@ -25,4 +31,8 @@ export const LeftSection = styled.section`
 
 export const RightSection = styled.section`
   width: 28rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;

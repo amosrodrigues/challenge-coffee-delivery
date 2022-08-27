@@ -9,6 +9,12 @@ export const ShoppingCartContainer = styled.div`
   background: ${(props) => props.theme['base-card']};
   border-radius: 6px 44px 6px 44px;
 
+  @media (max-width: 768px) {
+    padding: 1rem;
+    gap: 1rem;
+    border-radius: 4px 30px 4px 30px;
+  }
+
   .lds-ellipsis {
     display: flex;
     align-items: center;
@@ -87,12 +93,29 @@ export const CartItemCard = styled.div`
     justify-content: end;
     font-weight: 700;
   }
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+
+    > img {
+      width: 60px;
+      height: 60px;
+    }
+
+    > span {
+      flex: 0;
+      display: flex;
+      justify-content: end;
+      font-weight: 700;
+    }
+  }
 `;
 
 export const CartInfoActions = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  flex: 1;
 
   > h3 {
     font: 400 1rem 'Roboto';
@@ -102,7 +125,14 @@ export const CartInfoActions = styled.div`
   > div {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    > div {
+      gap: 1rem;
+    }
   }
 `;
 
@@ -130,6 +160,13 @@ export const ButtonRemoveItem = styled.button`
 
   SVG {
     color: ${(props) => props.theme.purple};
+  }
+
+  @media (max-width: 768px) {
+    height: 100%;
+    span {
+      display: none;
+    }
   }
 `;
 
@@ -168,6 +205,10 @@ export const ButtonActionQuantity = styled.div`
 
   span {
     color: ${(props) => props.theme['base-title']};
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
   }
 `;
 

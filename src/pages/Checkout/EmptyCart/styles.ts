@@ -8,6 +8,7 @@ export const EmptyCartContainer = styled.div`
   margin: 2.5rem 0;
 
   font-family: 'Baloo 2';
+  text-align: center;
 
   h2 {
     font-style: normal;

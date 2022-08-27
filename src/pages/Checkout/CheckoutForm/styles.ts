@@ -88,6 +88,14 @@ export const AddressWithTwoFields = styled.div`
     padding: 0.75rem;
     color: ${(props) => props.theme['base-label']};
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    span {
+      bottom: 0;
+    }
+  }
 `;
 
 export const AddressWithThreeFields = styled.div`
@@ -104,6 +112,14 @@ export const AddressWithThreeFields = styled.div`
 
   input:nth-child(3) {
     width: 3.75rem;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    input:nth-child(1) {
+      width: 100%;
+    }
   }
 `;
 
@@ -129,6 +145,10 @@ export const PaymentOptions = styled.div`
   justify-content: center;
   align-items: center;
   grid-gap: 0.75rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 interface PaymentOptionsCardProps {
@@ -139,7 +159,6 @@ export const PaymentOptionsCard = styled.div<PaymentOptionsCardProps>`
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
   padding: 1rem;
   gap: 0.75rem;
 
@@ -185,5 +204,9 @@ export const PaymentOptionsCard = styled.div<PaymentOptionsCardProps>`
 
   svg {
     color: ${(props) => props.theme.purple};
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;

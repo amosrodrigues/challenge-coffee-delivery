@@ -11,8 +11,25 @@ export interface Item {
   quantity: number;
 }
 
+export interface OrderData {
+  cep: string;
+  street: string;
+  streetNumber: string;
+  complement?: string;
+  district: string;
+  city: string;
+  uf: string;
+  paymentType: 'credit' | 'debit' | 'money';
+}
+
+export interface Order extends OrderData {
+  id: string;
+  orderDate: Date;
+}
+
 interface CartState {
   cart: Item[];
+  order: OrderData;
 }
 
 export function cartReducer(state: CartState, action: any) {
@@ -50,6 +67,11 @@ export function cartReducer(state: CartState, action: any) {
     case ActionsType.SHOULD_EMPTY_CART:
       return produce(state, (draft) => {
         draft.cart = [];
+      });
+
+    case ActionsType.GENERATE_ORDER:
+      return produce(state, (draft) => {
+        draft.order = action.payload.order;
       });
 
     default:

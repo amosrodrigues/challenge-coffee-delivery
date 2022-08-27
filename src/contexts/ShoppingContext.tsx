@@ -1,14 +1,18 @@
-import { createContext, ReactNode, useEffect, useState } from 'react';
-
-export interface Item {
-  id: number;
-  type: string;
-  thamb: string;
-  description: string;
-  category: string[];
-  price: number;
-  quantity: number;
-}
+import {
+  createContext,
+  ReactNode,
+  useEffect,
+  useReducer,
+  useState,
+} from 'react';
+import {
+  addItemToCartAction,
+  decreaseAmountItemAction,
+  increaseAmountItemAction,
+  removeItemOfCartAction,
+  shouldEmptyCartAction,
+} from '../reducers/cart/actions';
+import { cartReducer, Item } from '../reducers/cart/reducer';
 
 export interface OrderData {
   cep: string;
@@ -24,12 +28,12 @@ export interface OrderData {
 interface ShoppingContextType {
   order: OrderData;
   cart: Item[];
-  handleAddOrder: (data: OrderData) => void;
-  handleAddCart: (item: Item) => void;
-  handleRemoveCart: (id: number) => void;
-  handleIncreaseAmount: (id: number) => void;
-  handleDecreaseAmount: (id: number) => void;
-  handleEmptyCart: () => void;
+  generatOrder: (data: OrderData) => void;
+  addItemToCart: (item: Item) => void;
+  removeItemOfCart: (id: number) => void;
+  increaseAmountItem: (id: number) => void;
+  decreaseAmountItem: (id: number) => void;
+  shouldEmptyCart: () => void;
 }
 
 interface ShoppingProviderProps {
@@ -39,19 +43,27 @@ interface ShoppingProviderProps {
 export const ShoppingContext = createContext({} as ShoppingContextType);
 
 export function ShoppingProvider({ children }: ShoppingProviderProps) {
-  const [cart, setCart] = useState<Item[]>(() => {
-    const storedStateAsJSON = localStorage.getItem(
-      '@coffeeDelivery:cart-state-1.0.0',
-    );
-    if (storedStateAsJSON) {
-      return JSON.parse(storedStateAsJSON);
-    } else {
-      localStorage.setItem(
+  const [cartState, dispatch] = useReducer(
+    cartReducer,
+    {
+      cart: [],
+    },
+    () => {
+      const storedStateAsJSON = localStorage.getItem(
         '@coffeeDelivery:cart-state-1.0.0',
-        JSON.stringify([]),
       );
-    }
-  });
+      if (storedStateAsJSON) {
+        return JSON.parse(storedStateAsJSON);
+      } else {
+        localStorage.setItem(
+          '@coffeeDelivery:cart-state-1.0.0',
+          JSON.stringify({ cart: [] }),
+        );
+      }
+    },
+  );
+
+  const { cart } = cartState;
 
   const [order, setOrder] = useState<OrderData>(() => {
     const storedOrderAsJSON = localStorage.getItem(
@@ -67,52 +79,32 @@ export function ShoppingProvider({ children }: ShoppingProviderProps) {
     }
   });
 
-  function handleAddOrder(data: OrderData) {
+  function generatOrder(data: OrderData) {
     setOrder(data);
   }
 
-  function handleAddCart(item: Item) {
-    setCart((state) => [...state, item]);
+  function addItemToCart(item: Item) {
+    dispatch(addItemToCartAction(item));
   }
 
-  function handleRemoveCart(id: number) {
-    setCart((state) => state.filter((item) => item.id !== id));
+  function removeItemOfCart(id: number) {
+    dispatch(removeItemOfCartAction(id));
   }
 
-  function handleIncreaseAmount(id: number) {
-    const item = cart.find((item) => item.id === id);
-    const NewQuantity = item && item.quantity + 1;
-
-    setCart((state) =>
-      state.map((item) => {
-        if (item.id === id && NewQuantity) {
-          item.quantity = NewQuantity;
-        }
-        return item;
-      }),
-    );
+  function increaseAmountItem(id: number) {
+    dispatch(increaseAmountItemAction(id));
   }
 
-  function handleDecreaseAmount(id: number) {
-    const item = cart.find((item) => item.id === id);
-    const NewQuantity = item && item.quantity > 1 && item.quantity - 1;
-
-    setCart((state) =>
-      state.map((item) => {
-        if (item.id === id && NewQuantity) {
-          item.quantity = NewQuantity;
-        }
-        return item;
-      }),
-    );
+  function decreaseAmountItem(id: number) {
+    dispatch(decreaseAmountItemAction(id));
   }
 
-  function handleEmptyCart() {
-    setCart([]);
+  function shouldEmptyCart() {
+    dispatch(shouldEmptyCartAction());
   }
 
   useEffect(() => {
-    const stateJSON = JSON.stringify(cart);
+    const stateJSON = JSON.stringify(cartState);
     const orderJSON = JSON.stringify(order);
     localStorage.setItem('@coffeeDelivery:cart-state-1.0.0', stateJSON);
     localStorage.setItem('@coffeeDelivery:cart-order-1.0.0', orderJSON);
@@ -123,12 +115,12 @@ export function ShoppingProvider({ children }: ShoppingProviderProps) {
       value={{
         order,
         cart,
-        handleAddOrder,
-        handleAddCart,
-        handleRemoveCart,
-        handleIncreaseAmount,
-        handleDecreaseAmount,
-        handleEmptyCart,
+        generatOrder,
+        addItemToCart,
+        removeItemOfCart,
+        increaseAmountItem,
+        decreaseAmountItem,
+        shouldEmptyCart,
       }}>
       {children}
     </ShoppingContext.Provider>

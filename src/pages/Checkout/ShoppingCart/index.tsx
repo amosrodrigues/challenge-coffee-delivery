@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router-dom';
 import { useFormContext } from 'react-hook-form';
 
 export function ShoppingCart() {
-  const { cart, handleRemoveCart, handleIncreaseAmount, handleDecreaseAmount } =
+  const { cart, removeItemOfCart, increaseAmountItem, decreaseAmountItem } =
     useContext(ShoppingContext);
 
   const navigate = useNavigate();
@@ -44,20 +44,20 @@ export function ShoppingCart() {
                 <ButtonActionQuantity>
                   <button
                     type="button"
-                    onClick={() => handleDecreaseAmount(item.id)}>
+                    onClick={() => decreaseAmountItem(item.id)}>
                     <Minus size={14} />
                   </button>
                   <span>{item.quantity}</span>
                   <button
                     type="button"
-                    onClick={() => handleIncreaseAmount(item.id)}>
+                    onClick={() => increaseAmountItem(item.id)}>
                     <Plus size={14} />
                   </button>
                 </ButtonActionQuantity>
 
                 <ButtonRemoveItem
                   type="button"
-                  onClick={() => handleRemoveCart(item.id)}>
+                  onClick={() => removeItemOfCart(item.id)}>
                   <Trash size={16} />
                   <span>REMOVER</span>
                 </ButtonRemoveItem>

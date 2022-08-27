@@ -1,6 +1,7 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react';
 import { useCallback, useContext, useState } from 'react';
-import { Item, ShoppingContext } from '../../../../contexts/ShoppingContext';
+import { ShoppingContext } from '../../../../contexts/ShoppingContext';
+import { Item } from '../../../../reducers/cart/reducer';
 import { priceFormatterOnly } from '../../../../utils/formatter';
 import {
   ButtonActionQuantity,
@@ -16,9 +17,9 @@ interface CoffeeCardProps {
 }
 
 export function CoffeeCard({ item }: CoffeeCardProps) {
-  const [quantity, setQuantity] = useState(item.quantity);
+  const [quantity, setQuantity] = useState<number>(item.quantity);
 
-  const { handleAddCart, handleRemoveCart, cart } = useContext(ShoppingContext);
+  const { addItemToCart, removeItemOfCart, cart } = useContext(ShoppingContext);
 
   const selected = cart.some((itemCart) => itemCart.id === item.id);
 
@@ -42,9 +43,9 @@ export function CoffeeCard({ item }: CoffeeCardProps) {
     };
 
     if (selected) {
-      handleRemoveCart(item.id);
+      removeItemOfCart(item.id);
     } else {
-      handleAddCart(itemCart);
+      addItemToCart(itemCart);
     }
   }
 

@@ -25,7 +25,7 @@ const orderFormValidationSchema = zod.object({
 type orderFormData = zod.infer<typeof orderFormValidationSchema>;
 
 export function Checkout() {
-  const { handleEmptyCart, handleAddOrder, cart } = useContext(ShoppingContext);
+  const { shouldEmptyCart, generatOrder, cart } = useContext(ShoppingContext);
   const navigate = useNavigate();
 
   const orderForm = useForm<orderFormData>({
@@ -44,8 +44,8 @@ export function Checkout() {
     event?.preventDefault();
     await new Promise((resolve) => setTimeout(resolve, 2000));
     navigate('/success');
-    handleAddOrder(data);
-    handleEmptyCart();
+    generatOrder(data);
+    shouldEmptyCart();
   };
 
   return (

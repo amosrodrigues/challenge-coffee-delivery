@@ -13,12 +13,24 @@ export const CoffeeIntroContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 4.125rem;
+    order: 1;
   }
 
   img {
     width: 476px;
     height: 360px;
     object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 0;
+    flex-direction: column;
+
+    img {
+      width: 326px;
+      height: 250px;
+      order: 0;
+    }
   }
 `;
 
@@ -41,6 +53,16 @@ export const IntroTextConteinar = styled.div`
     color: ${(props) => props.theme['base-subtitle']};
     font-size: 1.25rem;
   }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    p {
+      font-size: 1.125rem;
+    }
+  }
 `;
 
 export const IntroItemsContainer = styled.div`
@@ -52,6 +74,10 @@ export const IntroItemsContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 0.75rem;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
 

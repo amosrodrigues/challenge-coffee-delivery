@@ -9,6 +9,7 @@ export const SuccessContainer = styled.div`
   @media (max-width: 768px) {
     gap: 0rem;
     margin-top: 2rem;
+    padding: 0 1rem;
   }
 `;
 
@@ -87,6 +88,10 @@ export const OrderInfo = styled.div`
     margin: -0.0625rem;
     border-radius: inherit;
     background: linear-gradient(to right, #dbac2c, #8047f8);
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
   }
 `;
 

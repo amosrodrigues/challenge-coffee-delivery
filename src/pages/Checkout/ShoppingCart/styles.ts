@@ -10,7 +10,7 @@ export const ShoppingCartContainer = styled.div`
   border-radius: 6px 44px 6px 44px;
 
   @media (max-width: 768px) {
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     gap: 1rem;
     border-radius: 4px 30px 4px 30px;
   }
@@ -26,7 +26,6 @@ export const ShoppingCartContainer = styled.div`
   }
   .lds-ellipsis div {
     position: absolute;
-    /* top: 0; */
     width: 13px;
     height: 13px;
     border-radius: 50%;
@@ -90,7 +89,7 @@ export const CartItemCard = styled.div`
   > span {
     flex: 1;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     font-weight: 700;
   }
 
@@ -100,13 +99,11 @@ export const CartItemCard = styled.div`
     > img {
       width: 60px;
       height: 60px;
+      margin-left: -0.5rem;
     }
 
     > span {
       flex: 0;
-      display: flex;
-      justify-content: end;
-      font-weight: 700;
     }
   }
 `;
@@ -131,7 +128,8 @@ export const CartInfoActions = styled.div`
 
   @media (max-width: 768px) {
     > div {
-      gap: 1rem;
+      gap: 0.75rem;
+      justify-content: flex-start;
     }
   }
 `;
@@ -208,7 +206,12 @@ export const ButtonActionQuantity = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding: 0 1rem;
+    flex: 0;
+
+    button {
+      width: 72px;
+      height: 38px;
+    }
   }
 `;
 

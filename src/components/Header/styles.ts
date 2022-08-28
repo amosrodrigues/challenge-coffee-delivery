@@ -18,6 +18,10 @@ export const HeaderContainer = styled.header`
     justify-content: center;
     gap: 0.75rem;
   }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 1rem 2rem;
+  }
 `;
 
 export const Cart = styled.nav`

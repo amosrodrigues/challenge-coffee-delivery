@@ -16,6 +16,10 @@ export const Address = styled.div`
 
   border-radius: 6px;
   background: ${(props) => props.theme['base-card']};
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 1rem;
+  }
 `;
 
 const BaseHeader = styled.div`
@@ -132,6 +136,10 @@ export const Payment = styled.div`
 
   border-radius: 6px;
   background: ${(props) => props.theme['base-card']};
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 1rem;
+  }
 `;
 
 export const PaymentHeader = styled(BaseHeader)`

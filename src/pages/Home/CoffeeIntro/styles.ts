@@ -18,11 +18,11 @@ export const CoffeeIntroContainer = styled.div`
   img {
     width: 476px;
     height: 360px;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   @media (max-width: 768px) {
-    padding: 3rem 0;
+    padding: 2rem 1rem;
     flex-direction: column;
 
     > div {

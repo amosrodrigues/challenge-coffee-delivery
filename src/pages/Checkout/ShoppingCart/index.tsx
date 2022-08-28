@@ -63,7 +63,7 @@ export function ShoppingCart() {
                 </ButtonRemoveItem>
               </div>
             </CartInfoActions>
-            <span>{priceFormatter.format(item.price)}</span>
+            <span>{priceFormatter.format(item.price * item.quantity)}</span>
           </CartItemCard>
         );
       })}

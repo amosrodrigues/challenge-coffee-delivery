@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const Button = styled.button`
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  align-items: center;
   padding: 0.75rem 1rem;
   cursor: pointer;
 

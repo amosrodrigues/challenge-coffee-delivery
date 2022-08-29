@@ -52,7 +52,7 @@ export const Content = styled.div`
 
   @media (max-width: 768px) {
     width: 100vw;
-    max-width: 95vw;
+    max-width: 90vw;
   }
 `;
 

@@ -54,6 +54,8 @@ O Coffee Delivery é uma aplicação para gerenciar um carrinho de compras de um
 
 - Exibir o valor total da soma de itens no carrinho multiplicados pelo valor
 
+<br>
+
 Sobre o desenvolvimento (conceitos e fundamentos):
 
 - Utilização do ContextApi para gerencimento de estado;

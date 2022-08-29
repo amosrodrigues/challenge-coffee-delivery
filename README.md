@@ -3,9 +3,9 @@
     Boas vindas ao projeto "Coffee Delivery"!
   </h1>
 <p align="center">
-  <a href="#tecnologias">Tecnologias</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="#projeto">Projeto</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="#instruções">Instruções</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#tecnologias">Tecnologias</a>&nbsp;&nbsp; |&nbsp;&nbsp;
+  <a href="#projeto">Projeto</a>&nbsp;&nbsp; |&nbsp;&nbsp;
+  <a href="#instruções">Instruções</a>&nbsp;&nbsp; |&nbsp;&nbsp;
   <a href="#contato">Contato</a>
 </p>
 <br>

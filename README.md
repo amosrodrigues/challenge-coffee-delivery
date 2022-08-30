@@ -9,7 +9,7 @@
   <a href="#contato">Contato</a>
 </p>
 <br>
-    <img alt="App Coffee Delivery" title="Coffee Delivery" src="./src/assets/capa.svg" />
+    <img alt="App Coffee Delivery" title="Coffee Delivery" src="./src/assets/capa.png" />
 </div>
 
 <br>

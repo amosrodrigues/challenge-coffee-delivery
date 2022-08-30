@@ -7,6 +7,7 @@ import {
 } from 'phosphor-react';
 import { useFormContext } from 'react-hook-form';
 import { Input } from '../../../components/Form/Input';
+import { STATES } from '../../../utils/states';
 import {
   Address,
   AddressHeader,
@@ -39,7 +40,15 @@ export function CheckoutForm() {
         </AddressHeader>
 
         <AddressFields>
-          <Input placeholder="CEP" error={!!errors.cep} {...register('cep')} />
+          <Input
+            placeholder="CEP (00000-000)"
+            pattern="[0-9]{5}-[0-9]{3}"
+            style={{ textTransform: 'uppercase' }}
+            maxLength={9}
+            minLength={9}
+            error={!!errors.cep}
+            {...register('cep')}
+          />
           <Input
             placeholder="Rua"
             error={!!errors.street}
@@ -71,10 +80,19 @@ export function CheckoutForm() {
             />
             <Input
               placeholder="UF"
+              maxLength={2}
+              minLength={2}
+              pattern="[A-Za-z]{2}"
               style={{ textTransform: 'uppercase' }}
+              list="uf-suggestions"
               error={!!errors.uf}
               {...register('uf')}
             />
+            <datalist id="uf-suggestions">
+              {STATES.map((uf) => (
+                <option value={uf.value} />
+              ))}
+            </datalist>
           </AddressWithThreeFields>
         </AddressFields>
       </Address>

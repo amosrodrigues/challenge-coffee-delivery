@@ -116,6 +116,10 @@ export const AddressWithThreeFields = styled.div`
 
   input:nth-child(3) {
     width: 3.75rem;
+
+    &::-webkit-calendar-picker-indicator {
+      display: none !important;
+    }
   }
 
   @media (max-width: 768px) {

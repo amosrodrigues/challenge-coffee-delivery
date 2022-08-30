@@ -12,13 +12,13 @@ import * as zod from 'zod';
 import { EmptyCart } from './EmptyCart';
 
 const orderFormValidationSchema = zod.object({
-  cep: zod.string().min(1, 'Campo obrigatório'),
+  cep: zod.string().regex(/^[0-9]{5}-[0-9]{3}$/, 'Campo obrigatório'),
   street: zod.string().min(1, 'Campo obrigatório'),
   streetNumber: zod.string().min(1, 'Campo obrigatório'),
   complement: zod.string().optional(),
   district: zod.string().min(1, 'Campo obrigatório'),
   city: zod.string().min(1, 'Campo obrigatório'),
-  uf: zod.string().min(1, 'Campo obrigatório'),
+  uf: zod.string().regex(/^[A-Za-z]{2}$/, 'Campo obrigatório'),
   paymentType: zod.enum(['credit', 'debit', 'money']),
 });
 

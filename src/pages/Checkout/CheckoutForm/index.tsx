@@ -90,7 +90,7 @@ export function CheckoutForm() {
             />
             <datalist id="uf-suggestions">
               {STATES.map((uf) => (
-                <option value={uf.value} />
+                <option key={uf.label} value={uf.value} />
               ))}
             </datalist>
           </AddressWithThreeFields>

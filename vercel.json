@@ -1,7 +1,0 @@
-{
-  "redirects": [
-    { "source": "/(.*)", "destination": "/" },
-    { "source": "/checkout", "destination": "/checkout" },
-    { "source": "/success", "destination": "/success" }
-  ]
-}

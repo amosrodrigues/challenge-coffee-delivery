@@ -1,6 +1,6 @@
-import { CoffeeIntro } from './CoffeeIntro';
-import { CoffeeList } from './CoffeList';
-import { HomeContainer } from './styles';
+import { CoffeeIntro } from './CoffeeIntro'
+import { CoffeeList } from './CoffeList'
+import { HomeContainer } from './styles'
 
 export function Home() {
   return (
@@ -8,5 +8,5 @@ export function Home() {
       <CoffeeIntro />
       <CoffeeList />
     </HomeContainer>
-  );
+  )
 }

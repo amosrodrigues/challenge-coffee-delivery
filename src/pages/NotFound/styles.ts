@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const NotFoundContainer = styled.div`
   display: flex;
@@ -23,4 +23,4 @@ export const NotFoundContainer = styled.div`
       font-size: 1rem;
     }
   }
-`;
+`

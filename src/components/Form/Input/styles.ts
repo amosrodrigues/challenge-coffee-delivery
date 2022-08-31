@@ -1,9 +1,10 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 interface InpuntStyled {
-  error?: boolean;
+  error?: boolean
 }
 
+// eslint-disable-next-line no-redeclare
 export const InpuntStyled = styled.input<InpuntStyled>`
   background: ${(props) => props.theme['base-input']};
   border: 1px solid ${(props) => props.theme['base-button']};
@@ -21,4 +22,4 @@ export const InpuntStyled = styled.input<InpuntStyled>`
   font-size: 0.875rem;
   padding: 0.75rem;
   height: 2.625rem;
-`;
+`

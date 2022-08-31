@@ -1,15 +1,15 @@
-import { useContext } from 'react';
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import { ShoppingContext } from '../../contexts/ShoppingContext';
-import { CheckoutForm } from './CheckoutForm';
-import { ShoppingCart } from './ShoppingCart';
-import { CheckoutContainer, LeftSection, RightSection } from './styles';
+import { useContext } from 'react'
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
+import { ShoppingContext } from '../../contexts/ShoppingContext'
+import { CheckoutForm } from './CheckoutForm'
+import { ShoppingCart } from './ShoppingCart'
+import { CheckoutContainer, LeftSection, RightSection } from './styles'
 
-import { zodResolver } from '@hookform/resolvers/zod';
+import { zodResolver } from '@hookform/resolvers/zod'
 
-import * as zod from 'zod';
-import { EmptyCart } from './EmptyCart';
+import * as zod from 'zod'
+import { EmptyCart } from './EmptyCart'
 
 const orderFormValidationSchema = zod.object({
   cep: zod.string().regex(/^[0-9]{5}-[0-9]{3}$/, 'Campo obrigatório'),
@@ -20,33 +20,33 @@ const orderFormValidationSchema = zod.object({
   city: zod.string().min(1, 'Campo obrigatório'),
   uf: zod.string().regex(/^[A-Za-z]{2}$/, 'Campo obrigatório'),
   paymentType: zod.enum(['credit', 'debit', 'money']),
-});
+})
 
-type orderFormData = zod.infer<typeof orderFormValidationSchema>;
+type orderFormData = zod.infer<typeof orderFormValidationSchema>
 
 export function Checkout() {
-  const { shouldEmptyCart, generateOrder, cart } = useContext(ShoppingContext);
-  const navigate = useNavigate();
+  const { shouldEmptyCart, generateOrder, cart } = useContext(ShoppingContext)
+  const navigate = useNavigate()
 
   const orderForm = useForm<orderFormData>({
     resolver: zodResolver(orderFormValidationSchema),
     defaultValues: {
       paymentType: 'credit',
     },
-  });
+  })
 
-  const { handleSubmit } = orderForm;
+  const { handleSubmit } = orderForm
 
   const handleSubmitForm: SubmitHandler<orderFormData> = async (
     data: orderFormData,
     event,
   ) => {
-    event?.preventDefault();
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    navigate('/success');
-    generateOrder(data);
-    shouldEmptyCart();
-  };
+    event?.preventDefault()
+    await new Promise((resolve) => setTimeout(resolve, 2000))
+    navigate('/success')
+    generateOrder(data)
+    shouldEmptyCart()
+  }
 
   return (
     <CheckoutContainer>
@@ -70,5 +70,5 @@ export function Checkout() {
         </form>
       )}
     </CheckoutContainer>
-  );
+  )
 }

@@ -4,10 +4,10 @@ import {
   CurrencyDollar,
   MapPinLine,
   Money,
-} from 'phosphor-react';
-import { useFormContext } from 'react-hook-form';
-import { Input } from '../../../components/Form/Input';
-import { STATES } from '../../../utils/states';
+} from 'phosphor-react'
+import { useFormContext } from 'react-hook-form'
+import { Input } from '../../../components/Form/Input'
+import { STATES } from '../../../utils/states'
 import {
   Address,
   AddressHeader,
@@ -19,14 +19,14 @@ import {
   PaymentHeader,
   PaymentOptions,
   PaymentOptionsCard,
-} from './styles';
+} from './styles'
 
 export function CheckoutForm() {
-  const { register, formState, watch } = useFormContext();
+  const { register, formState, watch } = useFormContext()
 
-  const { errors } = formState;
+  const { errors } = formState
 
-  const paymentType = watch('paymentType');
+  const paymentType = watch('paymentType')
 
   return (
     <FormContainer>
@@ -148,5 +148,5 @@ export function CheckoutForm() {
         </PaymentOptions>
       </Payment>
     </FormContainer>
-  );
+  )
 }

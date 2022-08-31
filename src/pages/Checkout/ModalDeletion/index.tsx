@@ -1,4 +1,4 @@
-import { X } from 'phosphor-react';
+import { X } from 'phosphor-react'
 import {
   ActionButton,
   ActionsButtons,
@@ -6,12 +6,12 @@ import {
   Content,
   ModalDeletionContainer,
   Overlay,
-} from './styles';
+} from './styles'
 
 interface ModalDeletionProps {
-  onActiveModal: { isOpen: boolean; idSelected: number };
-  onRemoveItem: () => void;
-  onClose: () => void;
+  onActiveModal: { isOpen: boolean; idSelected: number }
+  onRemoveItem: () => void
+  onClose: () => void
 }
 
 export function ModalDeletion({
@@ -39,5 +39,5 @@ export function ModalDeletion({
         </ActionsButtons>
       </Content>
     </ModalDeletionContainer>
-  );
+  )
 }

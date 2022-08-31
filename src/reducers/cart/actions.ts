@@ -1,4 +1,4 @@
-import { Item, OrderData } from './reducer';
+import { Item, OrderData } from './reducer'
 
 export enum ActionsType {
   ADD_ITEM_TO_CART = 'ADD_ITEM_TO_CART',
@@ -15,7 +15,7 @@ export function addItemToCartAction(item: Item) {
     payload: {
       item,
     },
-  };
+  }
 }
 
 export function removeItemOfCartAction(id: number) {
@@ -24,7 +24,7 @@ export function removeItemOfCartAction(id: number) {
     payload: {
       id,
     },
-  };
+  }
 }
 
 export function increaseAmountItemAction(id: number) {
@@ -33,7 +33,7 @@ export function increaseAmountItemAction(id: number) {
     payload: {
       id,
     },
-  };
+  }
 }
 
 export function decreaseAmountItemAction(id: number) {
@@ -42,13 +42,13 @@ export function decreaseAmountItemAction(id: number) {
     payload: {
       id,
     },
-  };
+  }
 }
 
 export function shouldEmptyCartAction() {
   return {
     type: ActionsType.SHOULD_EMPTY_CART,
-  };
+  }
 }
 
 export function generateOrderAction(order: OrderData) {
@@ -57,5 +57,5 @@ export function generateOrderAction(order: OrderData) {
     payload: {
       order,
     },
-  };
+  }
 }

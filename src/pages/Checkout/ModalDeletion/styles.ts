@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Overlay = styled.div`
   position: fixed;
@@ -7,15 +7,15 @@ export const Overlay = styled.div`
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 98;
-`;
+`
 
 interface ModalDeletionContainerProps {
-  isOpen: boolean;
+  isOpen: boolean
 }
 
 export const ModalDeletionContainer = styled.div<ModalDeletionContainerProps>`
   display: ${(props) => (props.isOpen ? 'blcok' : 'none')};
-`;
+`
 
 export const Content = styled.div`
   width: 19rem;
@@ -54,7 +54,7 @@ export const Content = styled.div`
     width: 100vw;
     max-width: 90vw;
   }
-`;
+`
 
 export const ActionsButtons = styled.div`
   display: flex;
@@ -62,10 +62,10 @@ export const ActionsButtons = styled.div`
   justify-content: space-between;
   gap: 1rem;
   margin-top: 2rem;
-`;
+`
 
 interface ActionsButtonsProps {
-  outline?: boolean;
+  outline?: boolean
 }
 
 export const ActionButton = styled.button<ActionsButtonsProps>`
@@ -94,7 +94,7 @@ export const ActionButton = styled.button<ActionsButtonsProps>`
     cursor: pointer;
     filter: brightness(1.2);
   }
-`;
+`
 
 export const ButtonClose = styled.button`
   display: flex;
@@ -117,4 +117,4 @@ export const ButtonClose = styled.button`
   &:focus {
     box-shadow: none;
   }
-`;
+`

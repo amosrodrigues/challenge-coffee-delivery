@@ -1,6 +1,6 @@
-import { Minus, Plus, Trash } from 'phosphor-react';
-import { useContext, useState } from 'react';
-import { priceFormatter } from '../../../utils/formatter';
+import { Minus, Plus, Trash } from 'phosphor-react'
+import { useContext, useState } from 'react'
+import { priceFormatter } from '../../../utils/formatter'
 import {
   CartItemCard,
   ShoppingCartContainer,
@@ -9,45 +9,45 @@ import {
   ButtonRemoveItem,
   CartItemSumary,
   ButtonSubmitOrder,
-} from './styles';
-import { ShoppingContext } from '../../../contexts/ShoppingContext';
-import { ButtonRedirect } from '../ButtonRedirect';
-import { useNavigate } from 'react-router-dom';
-import { useFormContext } from 'react-hook-form';
-import { ModalDeletion } from '../ModalDeletion';
+} from './styles'
+import { ShoppingContext } from '../../../contexts/ShoppingContext'
+import { ButtonRedirect } from '../ButtonRedirect'
+import { useNavigate } from 'react-router-dom'
+import { useFormContext } from 'react-hook-form'
+import { ModalDeletion } from '../ModalDeletion'
 
 export function ShoppingCart() {
   const [activeModal, setActiveModal] = useState({
     isOpen: false,
     idSelected: -1,
-  });
+  })
 
   const { cart, removeItemOfCart, increaseAmountItem, decreaseAmountItem } =
-    useContext(ShoppingContext);
+    useContext(ShoppingContext)
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const { formState } = useFormContext();
+  const { formState } = useFormContext()
 
   function handleActiveModal(id: number) {
-    setActiveModal({ isOpen: true, idSelected: id });
+    setActiveModal({ isOpen: true, idSelected: id })
   }
 
   function handleCloseModal() {
-    setActiveModal({ isOpen: false, idSelected: -1 });
+    setActiveModal({ isOpen: false, idSelected: -1 })
   }
 
   function handleRemoveItemOfCart() {
-    removeItemOfCart(activeModal.idSelected);
-    setActiveModal({ isOpen: false, idSelected: -1 });
+    removeItemOfCart(activeModal.idSelected)
+    setActiveModal({ isOpen: false, idSelected: -1 })
   }
 
   const totalPriceItem = cart.reduce((acc, item) => {
-    return acc + item.price * item.quantity;
-  }, 0);
+    return acc + item.price * item.quantity
+  }, 0)
 
-  const deliveryFee = 4;
-  const total = totalPriceItem + deliveryFee;
+  const deliveryFee = 4
+  const total = totalPriceItem + deliveryFee
 
   return (
     <>
@@ -64,20 +64,23 @@ export function ShoppingCart() {
                   <ButtonActionQuantity>
                     <button
                       type="button"
-                      onClick={() => decreaseAmountItem(item.id)}>
+                      onClick={() => decreaseAmountItem(item.id)}
+                    >
                       <Minus size={14} />
                     </button>
                     <span>{item.quantity}</span>
                     <button
                       type="button"
-                      onClick={() => increaseAmountItem(item.id)}>
+                      onClick={() => increaseAmountItem(item.id)}
+                    >
                       <Plus size={14} />
                     </button>
                   </ButtonActionQuantity>
 
                   <ButtonRemoveItem
                     type="button"
-                    onClick={() => handleActiveModal(item.id)}>
+                    onClick={() => handleActiveModal(item.id)}
+                  >
                     <Trash size={16} />
                     <span>REMOVER</span>
                   </ButtonRemoveItem>
@@ -85,7 +88,7 @@ export function ShoppingCart() {
               </CartInfoActions>
               <span>{priceFormatter.format(item.price * item.quantity)}</span>
             </CartItemCard>
-          );
+          )
         })}
 
         <CartItemSumary>
@@ -128,5 +131,5 @@ export function ShoppingCart() {
         onRemoveItem={handleRemoveItemOfCart}
       />
     </>
-  );
+  )
 }

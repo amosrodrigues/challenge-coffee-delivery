@@ -1,11 +1,11 @@
-import { NotFoundContainer } from './styles';
+import { NotFoundContainer } from './styles'
 
-import notFoundImg from '../../assets/page-not-found.svg';
-import { ButtonRedirect } from '../Checkout/ButtonRedirect';
-import { matchPath, useLocation, useNavigate } from 'react-router-dom';
+import notFoundImg from '../../assets/page-not-found.svg'
+import { ButtonRedirect } from '../Checkout/ButtonRedirect'
+import { matchPath, useLocation, useNavigate } from 'react-router-dom'
 
 export function NotFound() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   // const location = useLocation();
 
@@ -25,5 +25,5 @@ export function NotFound() {
       <h3>A página não pode ser encontrada.</h3>
       <ButtonRedirect onClick={() => navigate('/')} />
     </NotFoundContainer>
-  );
+  )
 }

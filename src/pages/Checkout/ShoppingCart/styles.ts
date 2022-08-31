@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const ShoppingCartContainer = styled.div`
   display: flex;
@@ -72,7 +72,7 @@ export const ShoppingCartContainer = styled.div`
       transform: translate(24px, 0);
     }
   }
-`;
+`
 
 export const CartItemCard = styled.div`
   display: flex;
@@ -106,7 +106,7 @@ export const CartItemCard = styled.div`
       flex: 0;
     }
   }
-`;
+`
 
 export const CartInfoActions = styled.div`
   display: flex;
@@ -132,7 +132,7 @@ export const CartInfoActions = styled.div`
       justify-content: flex-start;
     }
   }
-`;
+`
 
 export const ButtonRemoveItem = styled.button`
   display: flex;
@@ -166,7 +166,7 @@ export const ButtonRemoveItem = styled.button`
       display: none;
     }
   }
-`;
+`
 
 export const ButtonActionQuantity = styled.div`
   display: flex;
@@ -213,7 +213,7 @@ export const ButtonActionQuantity = styled.div`
       height: 38px;
     }
   }
-`;
+`
 
 export const CartItemSumary = styled.table`
   width: 100%;
@@ -232,7 +232,7 @@ export const CartItemSumary = styled.table`
     font-size: 1.25rem;
     color: ${(props) => props.theme['base-subtitle']};
   }
-`;
+`
 
 export const ButtonSubmitOrder = styled.button`
   display: flex;
@@ -259,4 +259,4 @@ export const ButtonSubmitOrder = styled.button`
   &:focus {
     box-shadow: none;
   }
-`;
+`

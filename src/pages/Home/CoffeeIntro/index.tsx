@@ -4,10 +4,10 @@ import {
   IconItem,
   IntroItemsContainer,
   IntroTextConteinar,
-} from './styles';
+} from './styles'
 
-import imageRightIntro from '../../../assets/image-right-intro.svg';
-import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react';
+import imageRightIntro from '../../../assets/image-right-intro.svg'
+import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 
 export function CoffeeIntro() {
   return (
@@ -56,5 +56,5 @@ export function CoffeeIntro() {
 
       <Background />
     </CoffeeIntroContainer>
-  );
+  )
 }

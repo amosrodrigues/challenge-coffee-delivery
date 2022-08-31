@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const EmptyCartContainer = styled.div`
   display: flex;
@@ -29,4 +29,4 @@ export const EmptyCartContainer = styled.div`
   button {
     margin-top: 2rem;
   }
-`;
+`

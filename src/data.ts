@@ -13,7 +13,7 @@ import {
   latte,
   macchiato,
   mochaccino,
-} from './assets/images';
+} from './assets/images'
 
 export const items = [
   {
@@ -146,4 +146,4 @@ export const items = [
     price: 9.9,
     quantity: 1,
   },
-];
+]

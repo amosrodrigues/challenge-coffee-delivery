@@ -1,12 +1,12 @@
-import { Cart, HeaderContainer, Location } from './styles';
-import logo from '../../assets/logo.svg';
-import { NavLink } from 'react-router-dom';
-import { MapPin, ShoppingCart } from 'phosphor-react';
-import { useContext } from 'react';
-import { ShoppingContext } from '../../contexts/ShoppingContext';
+import { Cart, HeaderContainer, Location } from './styles'
+import logo from '../../assets/logo.svg'
+import { NavLink } from 'react-router-dom'
+import { MapPin, ShoppingCart } from 'phosphor-react'
+import { useContext } from 'react'
+import { ShoppingContext } from '../../contexts/ShoppingContext'
 
 export function Header() {
-  const { cart, order } = useContext(ShoppingContext);
+  const { cart, order } = useContext(ShoppingContext)
   return (
     <HeaderContainer>
       <NavLink to="/" title="Voltar para Home">
@@ -32,5 +32,5 @@ export function Header() {
         </Cart>
       </div>
     </HeaderContainer>
-  );
+  )
 }

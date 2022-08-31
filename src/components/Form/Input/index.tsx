@@ -2,14 +2,14 @@ import {
   forwardRef,
   ForwardRefRenderFunction,
   InputHTMLAttributes,
-} from 'react';
+} from 'react'
 
-import { InpuntStyled } from './styles';
+import { InpuntStyled } from './styles'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  name?: string;
-  label?: string;
-  error?: boolean;
+  name?: string
+  label?: string
+  error?: boolean
 }
 
 const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
@@ -21,7 +21,7 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
       {!!label && <label htmlFor={name}>{label}</label>}
       <InpuntStyled id={name} name={name} error={error} {...props} ref={ref} />
     </>
-  );
-};
+  )
+}
 
-export const Input = forwardRef(InputBase);
+export const Input = forwardRef(InputBase)

@@ -107,4 +107,4 @@ export const STATES = [
     label: 'Tocantins',
     value: 'TO',
   },
-];
+]

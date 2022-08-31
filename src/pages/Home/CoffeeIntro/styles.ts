@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import background from '../../../assets/background-intro.svg';
+import styled from 'styled-components'
+import background from '../../../assets/background-intro.svg'
 
 export const CoffeeIntroContainer = styled.div`
   display: flex;
@@ -35,7 +35,7 @@ export const CoffeeIntroContainer = styled.div`
       order: 0;
     }
   }
-`;
+`
 
 export const IntroTextConteinar = styled.div`
   display: flex;
@@ -66,7 +66,7 @@ export const IntroTextConteinar = styled.div`
       font-size: 1.125rem;
     }
   }
-`;
+`
 
 export const IntroItemsContainer = styled.div`
   display: grid;
@@ -82,17 +82,17 @@ export const IntroItemsContainer = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: repeat(1, 1fr);
   }
-`;
+`
 
 const ICON_BACKGROUND_COLORS = {
   yellow: 'yellow',
   yellowDark: 'yellow-dark',
   purple: 'purple',
   baseText: 'base-text',
-} as const;
+} as const
 
 interface IconProps {
-  iconBackgroundColor: keyof typeof ICON_BACKGROUND_COLORS;
+  iconBackgroundColor: keyof typeof ICON_BACKGROUND_COLORS
 }
 
 export const IconItem = styled.i<IconProps>`
@@ -105,7 +105,7 @@ export const IconItem = styled.i<IconProps>`
   color: ${(props) => props.theme.white};
   background: ${(props) =>
     props.theme[ICON_BACKGROUND_COLORS[props.iconBackgroundColor]]};
-`;
+`
 
 export const Background = styled.div`
   background-image: url(${background});
@@ -119,4 +119,4 @@ export const Background = styled.div`
   right: -10rem;
   top: 0px;
   bottom: 0px;
-`;
+`

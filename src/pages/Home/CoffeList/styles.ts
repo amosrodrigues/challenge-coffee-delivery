@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const CoffeListContainer = styled.div`
   display: flex;
@@ -19,7 +19,7 @@ export const CoffeListContainer = styled.div`
       font-size: 1.5rem;
     }
   }
-`;
+`
 
 export const CoffeeListCard = styled.div`
   display: flex;
@@ -33,4 +33,4 @@ export const CoffeeListCard = styled.div`
     justify-content: center;
     margin-top: 3rem;
   }
-`;
+`

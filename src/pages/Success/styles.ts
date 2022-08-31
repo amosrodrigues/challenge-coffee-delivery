@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const SuccessContainer = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ export const SuccessContainer = styled.div`
     margin-top: 2rem;
     padding: 0 1rem;
   }
-`;
+`
 
 export const SuccessHeader = styled.div`
   h1 {
@@ -34,7 +34,7 @@ export const SuccessHeader = styled.div`
       font-size: 1rem;
     }
   }
-`;
+`
 
 export const SuccessSumary = styled.div`
   display: flex;
@@ -60,7 +60,7 @@ export const SuccessSumary = styled.div`
       order: 0;
     }
   }
-`;
+`
 
 export const OrderInfo = styled.div`
   display: flex;
@@ -93,17 +93,17 @@ export const OrderInfo = styled.div`
   @media (max-width: 768px) {
     padding: 1rem;
   }
-`;
+`
 
 const ICON_BACKGROUND_COLORS = {
   yellow: 'yellow',
   yellowDark: 'yellow-dark',
   purple: 'purple',
   baseText: 'base-text',
-} as const;
+} as const
 
 interface IconProps {
-  iconBackgroundColor: keyof typeof ICON_BACKGROUND_COLORS;
+  iconBackgroundColor: keyof typeof ICON_BACKGROUND_COLORS
 }
 
 export const IconItem = styled.div<IconProps>`
@@ -119,7 +119,7 @@ export const IconItem = styled.div<IconProps>`
   svg {
     fill: ${(props) => props.theme.white};
   }
-`;
+`
 
 export const OrderSteps = styled.div`
   display: flex;
@@ -129,4 +129,4 @@ export const OrderSteps = styled.div`
   p {
     line-height: 21px;
   }
-`;
+`

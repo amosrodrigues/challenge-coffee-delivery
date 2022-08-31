@@ -1,8 +1,8 @@
-import { Minus, Plus, ShoppingCart } from 'phosphor-react';
-import { useCallback, useContext, useState } from 'react';
-import { ShoppingContext } from '../../../../contexts/ShoppingContext';
-import { Item } from '../../../../reducers/cart/reducer';
-import { priceFormatterOnly } from '../../../../utils/formatter';
+import { Minus, Plus, ShoppingCart } from 'phosphor-react'
+import { useCallback, useContext, useState } from 'react'
+import { ShoppingContext } from '../../../../contexts/ShoppingContext'
+import { Item } from '../../../../reducers/cart/reducer'
+import { priceFormatterOnly } from '../../../../utils/formatter'
 import {
   ButtonActionQuantity,
   CardBody,
@@ -10,42 +10,42 @@ import {
   CardFooterActions,
   CardHeader,
   CoffeCardContainer,
-} from './styles';
+} from './styles'
 
 interface CoffeeCardProps {
-  item: Item;
+  item: Item
 }
 
 export function CoffeeCard({ item }: CoffeeCardProps) {
-  const [quantity, setQuantity] = useState<number>(item.quantity);
+  const [quantity, setQuantity] = useState<number>(item.quantity)
 
-  const { addItemToCart, removeItemOfCart, cart } = useContext(ShoppingContext);
+  const { addItemToCart, removeItemOfCart, cart } = useContext(ShoppingContext)
 
-  const selected = cart.some((itemCart) => itemCart.id === item.id);
+  const selected = cart.some((itemCart) => itemCart.id === item.id)
 
   const handleIncreaseAmount = useCallback(() => {
-    setQuantity((state) => (state += 1));
-  }, []);
+    setQuantity((state) => (state += 1))
+  }, [])
 
   const handleDecreaseAmount = useCallback(() => {
     setQuantity((state) => {
       if (state > 1) {
-        return (state -= 1);
+        return (state -= 1)
       }
-      return state;
-    });
-  }, []);
+      return state
+    })
+  }, [])
 
   function handleAddItemToShoppingCart() {
     const itemCart = {
       ...item,
       quantity,
-    };
+    }
 
     if (selected) {
-      removeItemOfCart(item.id);
+      removeItemOfCart(item.id)
     } else {
-      addItemToCart(itemCart);
+      addItemToCart(itemCart)
     }
   }
 
@@ -88,5 +88,5 @@ export function CoffeeCard({ item }: CoffeeCardProps) {
         </CardFooterActions>
       </CardFooter>
     </CoffeCardContainer>
-  );
+  )
 }

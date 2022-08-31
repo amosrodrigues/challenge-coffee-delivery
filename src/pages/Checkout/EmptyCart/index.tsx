@@ -1,11 +1,11 @@
-import { useNavigate } from 'react-router-dom';
-import { ButtonRedirect } from '../ButtonRedirect';
-import { EmptyCartContainer } from './styles';
+import { useNavigate } from 'react-router-dom'
+import { ButtonRedirect } from '../ButtonRedirect'
+import { EmptyCartContainer } from './styles'
 
-import emptyCartImg from '../../../assets/empty-cart.svg';
+import emptyCartImg from '../../../assets/empty-cart.svg'
 
 export function EmptyCart() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   return (
     <EmptyCartContainer>
       <img src={emptyCartImg} alt="Carrinho vazio" />
@@ -14,5 +14,5 @@ export function EmptyCart() {
 
       <ButtonRedirect type="button" onClick={() => navigate('/')} />
     </EmptyCartContainer>
-  );
+  )
 }

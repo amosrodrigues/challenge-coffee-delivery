@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const CheckoutContainer = styled.main`
   flex: 1;
@@ -24,11 +24,11 @@ export const CheckoutContainer = styled.main`
       flex-direction: column;
     }
   }
-`;
+`
 
 export const LeftSection = styled.section`
   flex: 1;
-`;
+`
 
 export const RightSection = styled.section`
   width: 28rem;
@@ -36,4 +36,4 @@ export const RightSection = styled.section`
   @media (max-width: 768px) {
     width: 100%;
   }
-`;
+`

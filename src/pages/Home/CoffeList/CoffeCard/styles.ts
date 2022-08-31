@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 export const CoffeCardContainer = styled.div`
   width: 256px;
@@ -19,7 +19,7 @@ export const CoffeCardContainer = styled.div`
   &:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
-`;
+`
 
 export const CardHeader = styled.div`
   display: flex;
@@ -54,7 +54,7 @@ export const CardHeader = styled.div`
       background: ${(props) => props.theme['yellow-light']};
     }
   }
-`;
+`
 
 export const CardBody = styled.div`
   display: flex;
@@ -73,7 +73,7 @@ export const CardBody = styled.div`
     font-size: 0.875rem;
     color: ${(props) => props.theme['base-label']};
   }
-`;
+`
 
 export const CardFooter = styled.div`
   display: flex;
@@ -89,10 +89,10 @@ export const CardFooter = styled.div`
   strong {
     font: 800 1.5rem 'Baloo 2';
   }
-`;
+`
 
 interface CardFooterActionsProps {
-  selected: boolean;
+  selected: boolean
 }
 
 export const CardFooterActions = styled.div<CardFooterActionsProps>`
@@ -134,7 +134,7 @@ export const CardFooterActions = styled.div<CardFooterActionsProps>`
         color: ${(props) => props.theme.purple};
       `}
   }
-`;
+`
 
 export const ButtonActionQuantity = styled.div`
   display: flex;
@@ -176,4 +176,4 @@ export const ButtonActionQuantity = styled.div`
   span {
     color: ${(props) => props.theme['base-title']};
   }
-`;
+`

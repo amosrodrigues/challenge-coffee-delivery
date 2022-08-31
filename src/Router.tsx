@@ -1,9 +1,9 @@
-import { Route, Routes } from 'react-router-dom';
-import { DefaultLayout } from './layouts/DefaultLayout';
-import { Checkout } from './pages/Checkout';
-import { Home } from './pages/Home';
-import { NotFound } from './pages/NotFound';
-import { Success } from './pages/Success';
+import { Route, Routes } from 'react-router-dom'
+import { DefaultLayout } from './layouts/DefaultLayout'
+import { Checkout } from './pages/Checkout'
+import { Home } from './pages/Home'
+import { NotFound } from './pages/NotFound'
+import { Success } from './pages/Success'
 
 export function Router() {
   return (
@@ -15,5 +15,5 @@ export function Router() {
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
-  );
+  )
 }

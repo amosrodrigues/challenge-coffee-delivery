@@ -5,24 +5,24 @@ import {
   SuccessContainer,
   SuccessHeader,
   SuccessSumary,
-} from './styles';
-import illustration from '../../assets/illustration.svg';
-import { Bank, CreditCard, MapPin, Money, Timer } from 'phosphor-react';
-import { useContext } from 'react';
-import { ShoppingContext } from '../../contexts/ShoppingContext';
-import { ButtonRedirect } from '../Checkout/ButtonRedirect';
-import { useNavigate } from 'react-router-dom';
+} from './styles'
+import illustration from '../../assets/illustration.svg'
+import { Bank, CreditCard, MapPin, Money, Timer } from 'phosphor-react'
+import { useContext } from 'react'
+import { ShoppingContext } from '../../contexts/ShoppingContext'
+import { ButtonRedirect } from '../Checkout/ButtonRedirect'
+import { useNavigate } from 'react-router-dom'
 
 export function Success() {
-  const { order } = useContext(ShoppingContext);
-  const navigate = useNavigate();
+  const { order } = useContext(ShoppingContext)
+  const navigate = useNavigate()
 
   const paymantType =
     order.paymentType === 'credit'
       ? ' Cartão de Crédito'
       : order.paymentType === 'debit'
       ? 'Cartão de Débito'
-      : 'Dinheiro';
+      : 'Dinheiro'
 
   const icon =
     order.paymentType === 'credit' ? (
@@ -31,7 +31,7 @@ export function Success() {
       <Bank size={16} weight="fill" />
     ) : (
       <Money size={16} weight="fill" />
-    );
+    )
 
   return (
     <SuccessContainer>
@@ -80,5 +80,5 @@ export function Success() {
         <img src={illustration} alt="" />
       </SuccessSumary>
     </SuccessContainer>
-  );
+  )
 }

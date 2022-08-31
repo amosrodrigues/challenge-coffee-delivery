@@ -1,6 +1,6 @@
-import { ShoppingCart } from 'phosphor-react';
-import { ButtonHTMLAttributes } from 'react';
-import { Button } from './styles';
+import { ShoppingCart } from 'phosphor-react'
+import { ButtonHTMLAttributes } from 'react'
+import { Button } from './styles'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
@@ -10,5 +10,5 @@ export function ButtonRedirect({ ...props }: ButtonProps) {
       <ShoppingCart size={22} weight="fill" />
       CONTINUAR COMPRANDO
     </Button>
-  );
+  )
 }

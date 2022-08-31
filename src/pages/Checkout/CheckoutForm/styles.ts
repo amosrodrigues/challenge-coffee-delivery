@@ -1,11 +1,11 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.75rem;
-`;
+`
 
 export const Address = styled.div`
   width: 100%;
@@ -20,7 +20,7 @@ export const Address = styled.div`
   @media (max-width: 768px) {
     padding: 1.5rem 1rem;
   }
-`;
+`
 
 const BaseHeader = styled.div`
   display: flex;
@@ -42,13 +42,13 @@ const BaseHeader = styled.div`
       line-height: 18px;
     }
   }
-`;
+`
 
 export const AddressHeader = styled(BaseHeader)`
   > svg {
     color: ${(props) => props.theme['yellow-dark']};
   }
-`;
+`
 
 export const AddressFields = styled.div`
   display: flex;
@@ -64,9 +64,9 @@ export const AddressFields = styled.div`
   p {
     color: red;
   }
-`;
+`
 
-export const AddressInpunt = styled.div``;
+export const AddressInpunt = styled.div``
 
 export const AddressWithTwoFields = styled.div`
   display: flex;
@@ -100,7 +100,7 @@ export const AddressWithTwoFields = styled.div`
       bottom: 0;
     }
   }
-`;
+`
 
 export const AddressWithThreeFields = styled.div`
   display: flex;
@@ -129,7 +129,7 @@ export const AddressWithThreeFields = styled.div`
       width: 100%;
     }
   }
-`;
+`
 
 export const Payment = styled.div`
   width: 100%;
@@ -144,13 +144,13 @@ export const Payment = styled.div`
   @media (max-width: 768px) {
     padding: 1.5rem 1rem;
   }
-`;
+`
 
 export const PaymentHeader = styled(BaseHeader)`
   > svg {
     color: ${(props) => props.theme.purple};
   }
-`;
+`
 
 export const PaymentOptions = styled.div`
   display: flex;
@@ -161,10 +161,10 @@ export const PaymentOptions = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
   }
-`;
+`
 
 interface PaymentOptionsCardProps {
-  selected?: boolean;
+  selected?: boolean
 }
 
 export const PaymentOptionsCard = styled.div<PaymentOptionsCardProps>`
@@ -221,4 +221,4 @@ export const PaymentOptionsCard = styled.div<PaymentOptionsCardProps>`
   @media (max-width: 768px) {
     width: 100%;
   }
-`;
+`

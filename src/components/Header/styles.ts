@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -22,7 +22,7 @@ export const HeaderContainer = styled.header`
   @media (max-width: 768px) {
     padding: 1.5rem 1rem 2rem;
   }
-`;
+`
 
 export const Cart = styled.nav`
   position: relative;
@@ -59,7 +59,7 @@ export const Cart = styled.nav`
     color: ${(props) => props.theme.white};
     z-index: 1;
   }
-`;
+`
 
 export const Location = styled.div`
   display: flex;
@@ -78,4 +78,4 @@ export const Location = styled.div`
       display: none;
     }
   }
-`;
+`

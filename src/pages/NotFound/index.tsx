@@ -7,17 +7,17 @@ import { matchPath, useLocation, useNavigate } from 'react-router-dom';
 export function NotFound() {
   const navigate = useNavigate();
 
-  const location = useLocation();
+  // const location = useLocation();
 
-  const routes = ['/checkout', '/success'];
+  // const routes = ['/checkout', '/success'];
 
-  const currentRoute = routes.find((route) =>
-    matchPath(location.pathname, route),
-  );
+  // const currentRoute = routes.find((route) =>
+  //   matchPath(location.pathname, route),
+  // );
 
-  if (currentRoute) {
-    navigate(`${currentRoute}`);
-  }
+  // if (currentRoute) {
+  //   navigate(`${currentRoute}`);
+  // }
 
   return (
     <NotFoundContainer>

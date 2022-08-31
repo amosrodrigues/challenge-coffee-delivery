@@ -10,6 +10,10 @@ export const EmptyCartContainer = styled.div`
   font-family: 'Baloo 2';
   text-align: center;
 
+  img {
+    width: 13rem;
+  }
+
   h2 {
     font-style: normal;
     font-weight: 700;

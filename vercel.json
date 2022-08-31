@@ -1,6 +1,6 @@
 {
   "redirects": [
-    { "source": "/checkout", "destination": "/src/pages/Checkout/index.tsx" },
-    { "source": "/success", "destination": "/src/pages/Success/index.tsx" }
+    { "source": "/checkout", "destination": "/checkout" },
+    { "source": "/success", "destination": "/success" }
   ]
 }

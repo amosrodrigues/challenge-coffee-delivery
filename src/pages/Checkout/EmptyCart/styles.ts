@@ -6,6 +6,7 @@ export const EmptyCartContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin: 2.5rem 0;
+  padding: 0 1rem;
 
   font-family: 'Baloo 2';
   text-align: center;

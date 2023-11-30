@@ -105,7 +105,7 @@ export function ShoppingCart() {
           <tfoot>
             <tr>
               <td>Total</td>
-              <td>{priceFormatter.format(total)}</td>
+              <td id="total">{priceFormatter.format(total)}</td>
             </tr>
           </tfoot>
         </CartItemSumary>

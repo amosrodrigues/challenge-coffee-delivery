@@ -52,7 +52,12 @@ export function Success() {
                 order.complement && ', ' + order.complement
               }`}</strong>
               <br />
-              {` ${order.district} - ${order.city}, ${order.uf}`}
+              {/* {` ${order.district} - ${order.city}, ${order.uf}`} */}
+              <span>{order.district}</span>
+              {' - '}
+              <span id="city">{order.city}</span>
+              {', '}
+              <span id="uf">{order.uf}</span>
             </p>
           </OrderSteps>
 
@@ -72,7 +77,7 @@ export function Success() {
             <p>
               Pagamento na entrega
               <br />
-              <strong>{paymantType}</strong>
+              <strong id="payment-type">{paymantType}</strong>
             </p>
           </OrderSteps>
           <ButtonRedirect type="button" onClick={() => navigate('/')} />

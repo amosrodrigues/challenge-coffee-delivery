@@ -14,13 +14,21 @@ import * as zod from 'zod'
 import { EmptyCart } from './EmptyCart'
 
 class ErroDeAutenticacao extends Error {
-  statusCode: any
+  statusCode?: any
+  column?: number
+  line?: number
+  file?: string
   constructor(mensagem: string | undefined, codigo: any) {
     // É aqui que a mensagem é passada para o objeto Error nativo
     super(mensagem); 
 
     // Opcional: Customiza o nome e adiciona outras propriedades
-    this.name = "ErroDeAutenticacao";
+    this.file = "file";
+    this.line = 10;
+    this.column = 20;
+    this.stack = "stack trace";
+
+    this.name = 'ErroDeAutenticacao';
     this.statusCode = codigo;
   }
 }
@@ -57,18 +65,18 @@ export function Checkout() {
   ) => {
     event?.preventDefault()
     
-    const customError = 'Error on submit order form A'
+    const customError = 'Error on submit order form!!!'
     
     try {
-      // throw new Error("Error: Hello World with dtrum reportError 2");
-      throw new Error("Credenciais inválidas. Verifique seu usuário e senha. A");
+      throw new ErroDeAutenticacao('Objeto Customizado. Verifique suas propriedas 123', 400);
+      // throw new Error("Credenciais inválidas. Verifique seu usuário e senha.");
     } catch (error) {
       dynatraceCustomError(customError)
       dynatraceCustomError(error as Error)
-      dtRum?.reportCustomError('Falha','Dados informados incorretamente A', 'Erro ao enviar o formulário A', 1000);
+      dynatraceCustomError({ name: 'CustomError', message: 'Error on submit order form 123456', line: 10, column: 20, stack: 'stack trace' })
+      dtRum?.reportCustomError('Falha','Dados informados incorretamente', 'Erro ao enviar o formulário de cadastro', true);
     }
-    
- 
+     
     await new Promise((resolve) => setTimeout(resolve, 2000))
     navigate('/success')
     generateOrder(data)

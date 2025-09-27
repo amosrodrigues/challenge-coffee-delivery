@@ -6,10 +6,24 @@ import { CheckoutForm } from './CheckoutForm'
 import { ShoppingCart } from './ShoppingCart'
 import { CheckoutContainer, LeftSection, RightSection } from './styles'
 
+import { dynatraceCustomError, dtRum } from '../../index'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import * as zod from 'zod'
 import { EmptyCart } from './EmptyCart'
+
+class ErroDeAutenticacao extends Error {
+  statusCode: any
+  constructor(mensagem: string | undefined, codigo: any) {
+    // É aqui que a mensagem é passada para o objeto Error nativo
+    super(mensagem); 
+
+    // Opcional: Customiza o nome e adiciona outras propriedades
+    this.name = "ErroDeAutenticacao";
+    this.statusCode = codigo;
+  }
+}
 
 const orderFormValidationSchema = zod.object({
   cep: zod.string().regex(/^[0-9]{5}-[0-9]{3}$/, 'Campo obrigatório'),
@@ -42,6 +56,19 @@ export function Checkout() {
     event,
   ) => {
     event?.preventDefault()
+    
+    const customError = 'Error on submit order form A'
+    
+    try {
+      // throw new Error("Error: Hello World with dtrum reportError 2");
+      throw new Error("Credenciais inválidas. Verifique seu usuário e senha. A");
+    } catch (error) {
+      dynatraceCustomError(customError)
+      dynatraceCustomError(error as Error)
+      dtRum?.reportCustomError('Falha','Dados informados incorretamente A', 'Erro ao enviar o formulário A', 1000);
+    }
+    
+ 
     await new Promise((resolve) => setTimeout(resolve, 2000))
     navigate('/success')
     generateOrder(data)

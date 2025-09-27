@@ -1,7 +1,7 @@
 export function getDtrumInstance() {
-    if (!window.dtrum) {
-        return
-    }
+  if (!window.dtrum) {
+    return
+  }
 
-    return window.dtrum
+  return window.dtrum
 }

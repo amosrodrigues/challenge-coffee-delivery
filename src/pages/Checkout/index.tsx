@@ -65,11 +65,11 @@ export function Checkout() {
   ) => {
     event?.preventDefault()
 
-    const customError = 'Error on submit order form!!!'
+    const customError = 'Error on submit order form (string - reportError)'
 
     try {
       throw new ErroDeAutenticacao(
-        'Objeto Customizado. Verifique suas propriedas 123',
+        'Verifique suas propriedas (custom error by class - reportError)',
         400,
       )
       // throw new Error("Credenciais inválidas. Verifique seu usuário e senha.");
@@ -78,14 +78,15 @@ export function Checkout() {
       dynatraceCustomError(error as Error)
       dynatraceCustomError({
         name: 'CustomError',
-        message: 'Error on submit order form 123456',
+        message:
+          'Credenciais inválidas. Verifique seu usuário e senha. (custon error by object - reportError)',
         line: 10,
         column: 20,
         stack: 'stack trace',
       })
       dtRum?.reportCustomError(
         'Falha',
-        'Dados informados incorretamente',
+        'Dados informados incorretamente (key value hint - reportCustomError)',
         'Erro ao enviar o formulário de cadastro',
         true,
       )
